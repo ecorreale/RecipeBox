@@ -14,8 +14,7 @@ This is an app for an audience thats loves to cook new dishes for daily meal pla
 <br/>1. Title<br/>2. Description<br/>3. Table of Contents<br/>4. Installation<br/>5. Usage<br/>6. License<br/>7. Contribution<br/>8. Test<br/>9. Email<br/>10. Demo<br/>
 
 # Installation
-You will need to install some packages as npm install the depency.  These are the dependencies,[ cookie-parser, cors, dotenv, express, if-env, morgan. Also the follow is devDepencies ,[ "concurrently": "^5.2.0",
-
+You will need to install some packages as npm concurrently, cross-env, lint-staged, nodemon, prettier. These are the dependencies,[ cookie-parser, cors, dotenv, express, if-env, morgan. Also the follow is devDepencies ,[ cross-env, lint-staged, nodemon, prettier]
 # Usage
 You have to sign up or log in , once you are in you can just search for a recipe , it will show result, you can also make your own recipe and save it.
 
