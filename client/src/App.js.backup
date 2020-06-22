@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 import './App.css';
 import Search from './components/Search';
 import Saved from './components/Saved';
-import Home from './components/pages/Home';
+import Home from './components/pages/home'
 
 import {
   BrowserRouter as Router,
@@ -12,14 +11,29 @@ import {
   Link,
   Redirect,
   useHistory,
-  useLocation,
-} from 'react-router-dom';
+  useLocation
+} from "react-router-dom";
+
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Container,
+  Row,
+  Col,
+  Jumbotron,
+  Button
+} from 'reactstrap';
 
 function App() {
   return (
     <div>
       <Router>
-        {/* <div>
+        <div>
           <nav>
             <ul>
               <li>
@@ -32,22 +46,22 @@ function App() {
                 <Link to="/saved">Saved</Link>
               </li>
             </ul>
-          </nav> */}
+          </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
+          {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/saved">
-            <Saved />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-        </Switch>
-        {/* </div> */}
+          <Switch>
+            <Route path="/saved">
+              <Saved />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+            <Route path="/search">
+              <Search />
+            </Route>
+          </Switch>
+        </div>
       </Router>
     </div>
   );
