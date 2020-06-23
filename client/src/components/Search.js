@@ -1,4 +1,5 @@
 import React from 'react';
+import Glyphs from 'glyphicons';
 
 function Search() {
   return (
@@ -15,7 +16,7 @@ function Search() {
       <input
         type="text"
         className="form-control"
-        placeholder=""
+        placeholder={Glyphs.magnifyingGlass}
         aria-label="Example text with button addon"
         aria-describedby="button-addon1"
       />

@@ -2,7 +2,7 @@ import React from 'react';
 import Search from './Search';
 
 import { Jumbotron } from 'reactstrap';
-import bgImage from './img/MakingPasta.png';
+import bgImage from '../img/MakingPasta.png';
 
 function Banner() {
   return (
