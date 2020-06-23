@@ -1,0 +1,8 @@
+.regForm {
+  max-width: 800px;
+  border-color: lightgray;
+  border-radius: 6px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+}
