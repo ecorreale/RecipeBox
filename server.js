@@ -3,6 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3001;
 
@@ -19,6 +20,13 @@ app.use(cookieParser());
 // Serve static files from the React app in production.
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+  // Connect to the Mongo DB
+  mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/recipebox', {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  });
 
   // The "catchall" handler: for any request that doesn't match an api
   // route, send back the React index.html file.
