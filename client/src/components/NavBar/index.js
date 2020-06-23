@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import icons from 'glyphicons';
+import styles from './styles.module.css';
 
 import {
   Collapse,
@@ -17,7 +18,7 @@ import {
   Container,
 } from 'reactstrap';
 
-import LoginStatus from './Login';
+import Login from '../Login/index';
 
 class Navigation extends Component {
   constructor(props) {
@@ -35,15 +36,15 @@ class Navigation extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={styles.NavBorder}>
         <Navbar color="inverse" light expand="md">
-          <NavbarBrand href="/">The Recipe Box</NavbarBrand>
+          <NavbarBrand href="/">My Recipe Box</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              {/* <NavItem>
-                                <NavLink href="/Home">Home</NavLink>
-                            </NavItem> */}
+              <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
 
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -57,16 +58,16 @@ class Navigation extends Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink href="/Search">Search</NavLink>
+                <NavLink href="/Register">Register</NavLink>
               </NavItem>
 
-              <NavItem>
+              {/* <NavItem>
                 <NavLink href="/Saved">Saved</NavLink>
-              </NavItem>
+              </NavItem> */}
 
-              {/* <NavbarText><LoginStatus UserName="Ernest Correale" IsAuthenticated={false}/></NavbarText> */}
+              {/* <NavbarText><Login UserName="Ernest Correale" IsAuthenticated={false}/></NavbarText> */}
               <NavItem>
-                <NavLink href="/">{icons.pe} Sign-In</NavLink>
+                <NavLink href="/">{icons.ain} Sign-In</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

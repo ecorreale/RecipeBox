@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Banner from '../../components/Banner';
-import Navigation from '../../components/Navigation';
+import Banner from '../../components/Hero';
+import Navigation from '../../components/NavBar';
 
 class Home extends Component {
   state = {

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
 import Search from './components/Search';
-import Saved from './components/Saved';
+// import Saved from './components/Saved';
 import Home from './pages/Home';
+import Registration from './pages/Register';
 
 import {
   BrowserRouter as Router,
@@ -14,40 +16,25 @@ import {
   useHistory,
   useLocation,
 } from 'react-router-dom';
+import { registered } from 'glyphicons';
 
 function App() {
   return (
     <div>
       <Router>
-        {/* <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/search">Search</Link>
-              </li>
-              <li>
-                <Link to="/saved">Saved</Link>
-              </li>
-            </ul>
-          </nav> */}
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/saved">
-            <Saved />
+          <Route path="/Register">
+            <Registration />
           </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+
           <Route path="/search">
             <Search />
           </Route>
+
+          <Route path="/">
+            <Home />
+          </Route>
         </Switch>
-        {/* </div> */}
       </Router>
     </div>
   );
