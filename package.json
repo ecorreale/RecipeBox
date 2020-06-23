@@ -50,6 +50,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.3",
     "express-session": "^1.17.1",
+    "glyphicons": "^0.2.0",
     "if-env": "^1.0.4",
     "morgan": "^1.10.0",
     "react": "^16.13.1",

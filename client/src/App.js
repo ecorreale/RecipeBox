@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Search from './components/Search';
 import Saved from './components/Saved';
-import Home from './components/pages/Home';
+import Home from './pages/Home';
 
 import {
   BrowserRouter as Router,

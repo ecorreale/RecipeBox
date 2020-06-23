@@ -1,7 +1,8 @@
 import React from 'react';
+import Search from './Search';
 
 import { Jumbotron } from 'reactstrap';
-import bgImage from './img/MakingPasta.png';
+import bgImage from '../img/MakingPasta.png';
 
 function Banner() {
   return (
@@ -11,6 +12,7 @@ function Banner() {
       >
         <h1>The Recipe Box</h1>
         <p>Create, Import, and organize your recipes online.</p>
+        <Search />
       </Jumbotron>
     </div>
   );

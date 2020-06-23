@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import icons from 'glyphicons';
+
 import {
   Collapse,
   Navbar,
@@ -12,9 +14,10 @@ import {
   NavbarText,
   NavItem,
   NavLink,
-  glyphicon,
   Container,
 } from 'reactstrap';
+
+import LoginStatus from './Login';
 
 class Navigation extends Component {
   constructor(props) {
@@ -61,10 +64,10 @@ class Navigation extends Component {
                 <NavLink href="/Saved">Saved</NavLink>
               </NavItem>
 
-              {/* <NavbarText>Simple Text</NavbarText>
-                            <NavItem>
-                                <NavLink href="/"><glyphicon>Login</glyphicon></NavLink>
-                            </NavItem> */}
+              {/* <NavbarText><LoginStatus UserName="Ernest Correale" IsAuthenticated={false}/></NavbarText> */}
+              <NavItem>
+                <NavLink href="/">{icons.pe} Sign-In</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Navbar>
