@@ -43,6 +43,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
