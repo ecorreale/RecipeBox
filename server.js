@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Include any API routes here
+app.use(routes);
 
 // Serve static files from the React app in production.
 if (process.env.NODE_ENV === 'production') {
