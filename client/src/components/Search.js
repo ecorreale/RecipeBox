@@ -13,12 +13,12 @@ function Search() {
     console.log(query);
   };
   const searchRecipes = () => {
-    axios
-      .get('/api/edamam', { params: { q: 'title:' + query } })
-      .then((edamamRecipesData) => {
-        console.log(edamamRecipesData);
-        setRecipes(RecipesData.data.items);
-      });
+    //   axios
+    //     .get('/api/edamam', { params: { q: 'title:' + query } })
+    //     .then((edamamRecipesData) => {
+    //       console.log(edamamRecipesData);
+    //       setRecipes(RecipesData.data.items);
+    //     });
   };
 
   return (

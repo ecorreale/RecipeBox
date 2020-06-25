@@ -51,8 +51,9 @@ class Navigation extends Component {
                   Options
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Option 1</DropdownItem>
-                  <DropdownItem>Option 2</DropdownItem>
+                  <DropdownItem>Breakfast</DropdownItem>
+                  <DropdownItem>Lunch</DropdownItem>
+                  <DropdownItem>Dinner</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>Reset</DropdownItem>
                 </DropdownMenu>
