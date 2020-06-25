@@ -67,7 +67,7 @@ class Navigation extends Component {
 
               {/* <NavbarText><Login UserName="Ernest Correale" IsAuthenticated={false}/></NavbarText> */}
               <NavItem>
-                <NavLink href="/">{icons.ain} Sign-In</NavLink>
+                <NavLink href="/">Foo</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

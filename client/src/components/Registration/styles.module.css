@@ -6,3 +6,14 @@
   border-style: solid;
   padding: 10px;
 }
+
+.formHeaderGroup {
+  font-size: larger;
+  font-weight: bold;
+
+  margin-top: 25px;
+  margin-bottom: 10px;
+
+  border-bottom: 1px solid;
+  border-color: #ededf1;
+}

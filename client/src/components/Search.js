@@ -16,7 +16,7 @@ function Search() {
       <input
         type="text"
         className="form-control"
-        placeholder={Glyphs.magnifyingGlass}
+        placeholder="Search for Recipe Title"
         aria-label="Example text with button addon"
         aria-describedby="button-addon1"
       />
