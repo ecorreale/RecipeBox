@@ -1,5 +1,15 @@
 import axios from 'axios';
 
+app.get('/api/edamam', (req, res) => {
+  console.log(req.query);
+  axios
+    .get('https://api.edamam.com/search?q=' + req.query.q)
+    .then((response) => {
+      // console.log(response.data)
+      res.json(response.data);
+    });
+});
+
 export default {
   // Gets all recipes
   getRecipes: function () {
