@@ -2,23 +2,34 @@ const mongoose = require('mongoose');
 const Ingredient = require('./Ingredient.js');
 const Equip = require('./Equip.js');
 const Direction = require('./Direction.js');
+// const User = require("./User");
 
 const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
+  author: { type: Schema.Types.ObjectId, ref: 'User' },
   name: {
     type: String,
     required: true,
   },
-  ingredients: [Ingredient],
+  ingredients: {
+    type: [Ingredient],
+    default: undefined,
+  },
   preptime: {
     type: String,
   },
   cooktime: {
     type: String,
   },
-  equipment: [Equip],
-  directions: [Direction],
+  equipment: {
+    type: [Equip],
+    default: undefined,
+  },
+  directions: {
+    type: [Direction],
+    default: undefined,
+  },
   serving: {
     type: Number,
   },
