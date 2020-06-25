@@ -33,10 +33,6 @@ const recipeSchema = new Schema({
   serving: {
     type: Number,
   },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
 });
 
 const Recipe = mongoose.model('recipe', recipeSchema);
