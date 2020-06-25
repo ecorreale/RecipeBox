@@ -10,6 +10,7 @@ class Registration extends Component {
   render() {
     return (
       <div>
+        <div id="edamam-badge" data-color="white"></div>
         <Navigation />
         <Wrapper>
           <h2>New Member Signup Form</h2>

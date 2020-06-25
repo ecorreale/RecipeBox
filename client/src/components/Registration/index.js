@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Col,
   Row,
-  Button,
+  ButtonToggle,
   Form,
   FormGroup,
   Label,
@@ -11,15 +11,24 @@ import {
 } from 'reactstrap';
 
 import styles from './styles.module.css';
+import recipeBoxImage from '../../img/recipeBox.png';
 
 class RegistrationForm extends Component {
   constructor(props) {
     super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state = {};
   }
+
+  handleSubmit(event, errors, values) {
+    this.setState({ errors, values });
+  }
+
   render() {
     return (
       <div className={styles.regForm}>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           <Row form>
             <Col md={6}>
               <FormGroup>
@@ -33,6 +42,7 @@ class RegistrationForm extends Component {
                 />
               </FormGroup>
             </Col>
+            <Col md={6}></Col>
           </Row>
 
           <Row form>
@@ -82,11 +92,87 @@ class RegistrationForm extends Component {
             </Col>
           </Row>
 
-          <Button>Sign Up</Button>
+          <Row form>
+            <Col md={12}>
+              <div className={styles.formHeaderGroup}>
+                Where did you hear about us?
+              </div>
+              <ReferenceSource />
+            </Col>
+          </Row>
+
+          <Row form>
+            <Col md={12}>
+              <div className={styles.formHeaderGroup}>Membership Rules</div>
+              <RulesBlock />
+              <p>
+                <FormGroup check>
+                  <Label check>
+                    <Input type="checkbox" /> I have read, understood, and
+                    accepted the rules for membership.
+                  </Label>
+                </FormGroup>
+              </p>
+            </Col>
+          </Row>
+          <Row form>
+            <br />
+            <Col md={{ size: 10, offset: 1 }}>
+              <br />
+              <ButtonToggle color="success"> Sign Up </ButtonToggle>
+            </Col>
+          </Row>
         </Form>
       </div>
     );
   }
+}
+
+function RulesBlock() {
+  return (
+    <div>
+      <ol>
+        <li>Membership is available to anyone 18 years of age or older.</li>
+        <li>
+          You promise NOT to use to conduct any fraudulent or business activity
+          or have more than one Member Account at any time.
+        </li>
+      </ol>
+    </div>
+  );
+}
+
+function ReferenceSource() {
+  return (
+    <div>
+      Where did you hear about My Recipe Box?
+      <FormGroup check>
+        <Label check>
+          <Input type="checkbox" /> A Friend or colleauge
+        </Label>
+      </FormGroup>
+      <FormGroup check>
+        <Label check>
+          <Input type="checkbox" /> Google
+        </Label>
+      </FormGroup>
+      <FormGroup check>
+        <Label check>
+          <Input type="checkbox" /> Blog Post
+        </Label>
+      </FormGroup>
+      <FormGroup check>
+        <Label check>
+          <Input type="checkbox" /> Forum Post
+        </Label>
+      </FormGroup>
+      <FormGroup check>
+        <Label check>
+          <Input type="checkbox" /> News Article
+        </Label>
+      </FormGroup>
+    </div>
+  );
 }
 
 export default RegistrationForm;

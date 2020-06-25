@@ -21,6 +21,7 @@ import { registered } from 'glyphicons';
 function App() {
   return (
     <div>
+      <script src="https://developer.edamam.com/attribution/badge.js"></script>
       <Router>
         <Switch>
           <Route path="/Register">

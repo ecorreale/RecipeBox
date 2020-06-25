@@ -3,6 +3,7 @@ import Search from '../Search';
 
 import { Jumbotron } from 'reactstrap';
 import bgImage from '../../img/MakingPasta.png';
+import Login from '../Login';
 
 function Banner() {
   return (
