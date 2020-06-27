@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from '../Search';
+import SearchBox, { buttonOptions } from '../SearchBox';
 
 import { Jumbotron } from 'reactstrap';
 import bgImage from '../../img/MakingPasta.png';
@@ -13,7 +13,9 @@ function Banner() {
       >
         <h1>The Recipe Box</h1>
         <p>Create, Import, and organize your recipes online.</p>
-        <Search />
+        <div style={{ maxWidth: '600px' }}>
+          <SearchBox />
+        </div>
       </Jumbotron>
     </div>
   );
