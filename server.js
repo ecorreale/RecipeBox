@@ -6,7 +6,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3001;
-
 const app = express();
 
 app.use(logger('dev'));
@@ -16,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Include any API routes here
-app.use(routes);
+// app.use(routes);
 
 // Serve static files from the React app in production.
 if (process.env.NODE_ENV === 'production') {
