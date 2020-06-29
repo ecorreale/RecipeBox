@@ -1,44 +1,37 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
+const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true;
+    setTimeout(cb, 100); // fake async
+  },
+  signout(cb) {
+    this.isAuthenticated = false;
+    setTimeout(cb, 100); // fake async
+  },
+};
 
-    // this.state.IsAuthenticated = this.state.IsAuthenticated.bind(this)
-  }
+class Login extends React.Component {
+  state = {
+    redirectToReferrer: false,
+  };
 
-  // ToDo:  Define state variables for username and IsAuthetnicated
+  login = () => {
+    fakeAuth.authenticate(() => {
+      this.setState(() => ({
+        redirectToReferrer: true,
+      }));
+    });
+  };
   render() {
-    if (this.props.IsAuthenticated) {
-      return (
-        <div style={{ fontSize: '11px' }}> Welcome {this.props.UserName} </div>
-      );
-    } else {
-      return (
-        <Form inline>
-          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="oUsername" className="mr-sm-2">
-              Email
-            </Label>
-            <Input
-              bsSize="sm"
-              type="email"
-              name="email"
-              id="oUsername"
-              placeholder="eMail Address"
-            />
-          </FormGroup>
-          <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="oPassword" className="mr-sm-2">
-              Password
-            </Label>
-            <Input bsSize="sm" type="password" name="password" id="oPassword" />
-          </FormGroup>
-          <Button>Submit</Button>
-        </Form>
-      );
+    const { redirectToReferrer } = this.state;
+
+    if (redirectToReferrer === true) {
+      // return <Redirect to='/' />
     }
+
+    return <div>Login</div>;
   }
 }
 

@@ -1,10 +1,6 @@
 .regForm {
-  max-width: 800px;
-  border-color: lightgray;
-  border-radius: 6px;
-  border-width: 1px;
-  border-style: solid;
-  padding: 10px;
+  background-color: white;
+  padding: 15px;
 }
 
 .formHeaderGroup {
@@ -16,4 +12,9 @@
 
   border-bottom: 1px solid;
   border-color: #ededf1;
+}
+
+.formImage {
+  float: left;
+  width: 140px;
 }

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
 import styles from './styles.module.css';
 
 import {
@@ -8,19 +6,10 @@ import {
   Navbar,
   NavbarToggler,
   NavbarBrand,
-  Button,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   Nav,
-  NavbarText,
   NavItem,
   NavLink,
-  Container,
 } from 'reactstrap';
-
-import Login from '../Login/index';
 
 class Navigation extends Component {
   constructor(props) {
@@ -58,45 +47,12 @@ class Navigation extends Component {
     console.log('SignUp Button Clicked');
   }
 
-  AuthenticatedNav() {
-    if (this.state.IsAuthenticated) {
-      return (
-        <NavItem>
-          <NavLink href="/RecipeBox">My Recipes</NavLink>
-        </NavItem>
-      );
-    } else {
-      return (
-        <div>
-          <Button
-            style={{ marginRight: '10px' }}
-            className={'btn-sm'}
-            onClick={this.handleSignIn}
-            outline
-            color="success"
-          >
-            Sign In
-          </Button>
-
-          <Button
-            className={'btn-sm'}
-            onClick={this.handleSignUp}
-            outline
-            color="success"
-          >
-            Sign Up
-          </Button>
-        </div>
-      );
-    }
-  }
-
   render() {
     console.log('IsAuthenticated: ' + this.state.IsAuthenticated);
 
     return (
       <div className={styles.NavBorder}>
-        <Navbar color="inverse" light expand="md">
+        <Navbar className={styles.NavBarCustom} light expand="md">
           <NavbarBrand href="/">My Recipe Box</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -105,10 +61,20 @@ class Navigation extends Component {
                 <NavLink href="/">Home</NavLink>
               </NavItem>
 
-              {this.AuthenticatedNav()}
+              <NavItem>
+                <NavLink href="/Recipe">My Recipies</NavLink>
+              </NavItem>
 
               <NavItem>
-                <Link to={`${this.handleSignOut}`}>Sign Out</Link>
+                <NavLink href="/SignIn">Sign In</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink href="/SignUp">Register</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink href="/signOut">Sign Out</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
@@ -119,8 +85,3 @@ class Navigation extends Component {
 }
 
 export default Navigation;
-
-{
-  /* <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> */
-}
