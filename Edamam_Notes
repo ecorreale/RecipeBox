@@ -1,3 +1,5 @@
+
+
 Compression
 Request header: Accept-Encoding: gzip
 Response header: Content-Encoding: gzip
@@ -44,23 +46,23 @@ mealType 	Dinner
 mealType 	Snack
 mealType 	Teatime
 
-
-dishType 	Biscuits and cookies
-dishType 	Bread
-dishType 	Cereals
-dishType 	Condiments and sauces
-dishType 	Drinks
-dishType 	Desserts
-dishType 	Main course
-dishType 	Pancake
-dishType 	Preps
-dishType 	Preserve
-dishType 	Salad
-dishType 	Sandwiches
-dishType 	Side dish
-dishType 	Soup
-dishType 	Starter
-dishType 	Sweets
+dishType
+Biscuits and cookies
+Bread
+Cereals
+Condiments and sauces
+Drinks
+Desserts
+Main course
+Pancake
+Preps
+Preserve
+Salad
+Sandwiches
+Side dish
+Soup
+Starter
+Sweets
 
 
 

@@ -4,3 +4,8 @@
   border-bottom-color: lightgray;
   border-bottom-style: solid;
 }
+
+.NavButton {
+  width: 100px;
+  margin-right: 10px;
+}

@@ -52,7 +52,6 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.3",
     "express-session": "^1.17.1",
-    "glyphicons": "^0.2.0",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.20",
@@ -61,7 +60,5 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
-    "reactstrap": "^8.4.1",
-    "styled-components": "^5.1.1"
+    "reactstrap": "^8.4.1"
   }
-}
