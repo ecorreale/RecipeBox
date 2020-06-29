@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 let db = {};
 
 db = {
-  user: require('./User'),
+  User: require('./User'),
   Role: require('./Role'),
   Recipe: require('./Recipe'),
   Direction: require('./Direction'),
