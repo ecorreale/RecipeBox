@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -53,11 +54,14 @@
     "express-session": "^1.17.1",
     "glyphicons": "^0.2.0",
     "if-env": "^1.0.4",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.20",
     "morgan": "^1.10.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "reactstrap": "^8.4.1"
+    "react-router-dom": "^5.2.0",
+    "reactstrap": "^8.4.1",
+    "styled-components": "^5.1.1"
   }
 }
