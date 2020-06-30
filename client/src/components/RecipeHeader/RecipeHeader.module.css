@@ -1,15 +1,69 @@
-.header {
+.headerWrapper {
   background-color: white;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-top: 20px;
-  padding-bottom: 100px;
+  padding: 20px 50px;
+}
+
+.header {
+  background-color: #fcf4ec;
   display: flex;
   flex-direction: row;
 }
 
-.imageWrapper {
-  background-color: #fcf4ec;
+.headerDetail_Wrapper {
+  margin-left: 20px;
+}
+
+.headerDetail {
+  color: #333;
+  margin-left: 20px;
+}
+
+.headerDetail_Title {
+  font-family: 'SerifaBT-Light', Georgia, 'Times New Roman', Times, serif;
+  font-size: 35px;
+  line-height: 40px;
+  color: #333;
+  letter-spacing: 0.2px;
+  font-size: 40px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  /*
+  line-height: 40px;
+  letter-spacing: .2px;
+  font-size: 40px;
+  margin-top: 8px;
+  margin-bottom: 10px; */
+}
+
+.effortBox {
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 11px;
+}
+
+.clockIcon {
+  color: rgb(109, 174, 177);
+  font-size: 35px;
+  padding: 5px;
+}
+
+.prepTime,
+.cookTime {
+  display: block;
+  padding-bottom: 6px;
+  line-height: 14px;
+  font-weight: bold;
+}
+
+.hours {
+  font-weight: 300;
+}
+
+.headerDetail_Body {
+  color: #333;
+}
+
+.imageComponentWrapper {
   padding-top: 20px;
   padding-bottom: 30px;
   padding-left: 50px;
