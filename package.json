@@ -10,7 +10,7 @@
     "client": "cd client && npm start",
     "install": "cd client && npm install",
     "build": "cd client && npm build",
-    "heroku-postbuild": "cd client && npm --production=false && npm build"
+    "heroku-postbuild": "cd client && npm run build"
   },
   "lint-staged": {
     "**/*.{js,jsx,json,css}": [
@@ -62,3 +62,4 @@
     "react-router-dom": "^5.2.0",
     "reactstrap": "^8.4.1"
   }
+}

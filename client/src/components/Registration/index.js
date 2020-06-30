@@ -12,7 +12,6 @@ import {
 
 import styles from './styles.module.css';
 import recipeBoxImage from '../../img/recipeBox.png';
-import axios from 'axios';
 
 class RegistrationForm extends Component {
   constructor(props) {
@@ -23,13 +22,6 @@ class RegistrationForm extends Component {
   }
 
   handleSubmit(event, errors, values) {
-    event.preventDefault();
-    console.log(event.target);
-    axios
-      .post('/api/auth/signup', { username: event.target })
-      .then((response) => {
-        console.log(response);
-      });
     this.setState({ errors, values });
   }
 

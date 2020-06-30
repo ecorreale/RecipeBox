@@ -1,25 +1,26 @@
 const mongoose = require('mongoose');
 // const Recipe = require("./Recipe");
 
-const User = mongoose.model(
-  'User',
-  new mongoose.Schema({
-    username: {
-      type: String,
-      trim: true,
-      required: 'Username is Required',
-    },
-    email: { type: String, trim: true, required: 'email is Required' },
+const Schema = mongoose.Schema;
 
-    password: { type: String, trim: true, required: 'password is Required' },
-    roles: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Role',
-      },
-    ],
-    recipes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Recipe' }],
-  })
-);
+const userSchema = new Schema({
+  firstname: {
+    type: String,
+  },
+  lastname: {
+    type: String,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe' }],
+});
+
+const User = mongoose.model('user', userSchema);
 
 module.exports = User;
