@@ -1,0 +1,125 @@
+.headerWrapper {
+  background-color: white;
+  padding: 20px 50px;
+}
+
+.header {
+  background-color: #fcf4ec;
+  display: flex;
+  flex-direction: row;
+}
+
+.headerDetail_Wrapper {
+  margin-left: 20px;
+}
+
+.headerDetail {
+  color: #333;
+  margin-left: 20px;
+}
+
+.headerDetail_Title {
+  font-family: 'SerifaBT-Light', Georgia, 'Times New Roman', Times, serif;
+  font-size: 35px;
+  line-height: 40px;
+  color: #333;
+  letter-spacing: 0.2px;
+  font-size: 40px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  /*
+  line-height: 40px;
+  letter-spacing: .2px;
+  font-size: 40px;
+  margin-top: 8px;
+  margin-bottom: 10px; */
+}
+
+.effortBox {
+  margin-top: 10px;
+  display: inline-block;
+  font-size: 11px;
+}
+
+.clockIcon {
+  color: rgb(109, 174, 177);
+  font-size: 35px;
+  padding: 5px;
+}
+
+.prepTime,
+.cookTime {
+  display: block;
+  padding-bottom: 6px;
+  line-height: 14px;
+  font-weight: bold;
+}
+
+.hours {
+  font-weight: 300;
+}
+
+.headerDetail_Body {
+  color: #333;
+}
+
+.imageComponentWrapper {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  padding-left: 50px;
+}
+
+.cardWrapper {
+  max-width: 375px;
+}
+
+.cardBody {
+  padding: 0px;
+}
+
+.cardFooter {
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #667f2e;
+  color: white;
+}
+
+.buttonContainer {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.button {
+  border-radius: 3px;
+  font-size: 15px;
+  display: inline-block;
+  line-height: 24px;
+  padding-top: 10px;
+  padding-left: 5px;
+
+  border: 0;
+}
+
+.buttonSave {
+  background: #be2a77;
+  color: white;
+}
+
+.buttonPrint {
+  margin-right: 30px;
+  margin-left: 15px;
+  background-color: #531b7b;
+  color: white;
+}
+
+.buttonText {
+  text-align: left;
+  padding-right: 10px;
+  font-size: 15px;
+}
+
+.buttonIcon {
+  text-align: right;
+  font-weight: bold;
+  margin-left: 10px;
+}

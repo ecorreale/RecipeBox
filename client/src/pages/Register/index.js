@@ -10,12 +10,10 @@ class Registration extends Component {
   render() {
     return (
       <div>
-        <div id="edamam-badge" data-color="white"></div>
         <Navigation />
         <Wrapper>
           <h2>New Member Signup Form</h2>
           <h4>Complete the form below to sign up for RecipeBox</h4>
-
           <RegistrationForm />
         </Wrapper>
       </div>

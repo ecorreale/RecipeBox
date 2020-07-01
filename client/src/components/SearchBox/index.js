@@ -1,8 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-
-import Recipe from '../Recipe/Recipe';
-// import edmam, { mealTypes, dishTypes } from '../Strings'
-import { mealTypes } from '../Strings';
+import React, { Component } from 'react';
+import { MealTypes } from '../Strings';
 
 import {
   ButtonDropdown,
@@ -40,8 +37,8 @@ export class SearchBox extends Component {
 
   render() {
     return (
-      <div class="input-group mt-3 mb-3">
-        <div class="input-group-prepend">
+      <div className="input-group mt-3 mb-3">
+        <div className="input-group-prepend">
           <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <Button id="SearchSelector" color="secondary">
               {'Search: ' + this.state.dropdownValue}
@@ -49,8 +46,9 @@ export class SearchBox extends Component {
             <DropdownToggle caret color="secondary" size="sm" />
 
             <DropdownMenu>
-              {mealTypes.map((mealType) => (
+              {MealTypes.map((mealType, index) => (
                 <DropdownItem
+                  key={index}
                   onClick={this.handleChange}
                   dropdownValue={mealType}
                 >
@@ -62,7 +60,7 @@ export class SearchBox extends Component {
         </div>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="Search Recipe Titles"
         />
       </div>

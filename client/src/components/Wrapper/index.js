@@ -1,11 +1,14 @@
 import React from 'react';
-import './style.css';
+import { Container } from 'reactstrap';
+import Styles from './Wrapper.css';
 
 function Wrapper(props) {
   return (
-    <div>
-      <main className="wrapper" {...props} />
-    </div>
+    <Container fluid="md" className={Styles.siteWrapper}>
+      <div>
+        <main {...props} />
+      </div>
+    </Container>
   );
 }
 

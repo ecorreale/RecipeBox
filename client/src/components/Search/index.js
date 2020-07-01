@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Glyphs from 'glyphicons';
-import Recipe from '../Recipe/Recipe';
-// import edmam from '../strings';
 
 function Search() {
   // Van working on
@@ -34,19 +31,19 @@ function Search() {
           Dropdown button
         </button>
         <div class="dropdown-menu">
-          <a class="All" href="#">
+          <a class="All" href="/client">
             Link 3
           </a>
-          <a class="Breakfast" href="#">
+          <a class="Breakfast" href="/">
             Link 1
           </a>
-          <a class="Lunch" href="#">
+          <a class="Lunch" href="/">
             Link 2
           </a>
-          <a class="Dinner" href="#">
+          <a class="Dinner" href="/">
             Link 3
           </a>
-          <a class="Snacks" href="#">
+          <a class="Snacks" href="/">
             Link 3
           </a>
         </div>

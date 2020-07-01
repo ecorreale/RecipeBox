@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import Search from './components/Search';
-// import Saved from './components/Saved';
 import Home from './pages/Home';
 import Registration from './pages/Register';
+import RecipePage from './pages/RecipePage';
 
 import {
   BrowserRouter as Router,
@@ -16,15 +16,18 @@ import {
   useHistory,
   useLocation,
 } from 'react-router-dom';
-import { registered } from 'glyphicons';
 
 function App() {
   return (
     <div>
-      <script src="https://developer.edamam.com/attribution/badge.js"></script>
+      {/* <script src="https://developer.edamam.com/attribution/badge.js"></script> */}
       <Router>
         <Switch>
-          <Route path="/Register">
+          <Route path="/recipe">
+            <RecipePage />
+          </Route>
+
+          <Route path="/signUp">
             <Registration />
           </Route>
 
@@ -35,7 +38,6 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
-          <Route path="/api/foo"></Route>
         </Switch>
       </Router>
     </div>

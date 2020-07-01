@@ -7,11 +7,9 @@ import {
   FormGroup,
   Label,
   Input,
-  Container,
 } from 'reactstrap';
 
 import styles from './styles.module.css';
-import recipeBoxImage from '../../img/recipeBox.png';
 
 class RegistrationForm extends Component {
   constructor(props) {
@@ -30,6 +28,10 @@ class RegistrationForm extends Component {
       <div className={styles.regForm}>
         <Form onSubmit={this.handleSubmit}>
           <Row form>
+            <Col md={6}></Col>
+            <Col md={6}></Col>
+          </Row>
+          <Row form>
             <Col md={6}>
               <FormGroup>
                 <Label for="oEmailAddr">Email</Label>
@@ -42,7 +44,14 @@ class RegistrationForm extends Component {
                 />
               </FormGroup>
             </Col>
-            <Col md={6}></Col>
+            <Col md={6}>
+              <img
+                className={'img-fluid'}
+                style={{ float: 'left', width: '140px' }}
+                src="/img/fatherCookingClip.jpg"
+                alt="Father Cooking Clipart"
+              />
+            </Col>
           </Row>
 
           <Row form>

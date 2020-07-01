@@ -1,0 +1,8 @@
+.siteWrapper {
+  max-width: 1400px;
+  min-height: 100%;
+  padding-bottom: 100px;
+  padding: 20px;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  color: #333;
+}
