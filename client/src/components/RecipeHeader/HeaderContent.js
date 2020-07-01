@@ -1,7 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 import { Component } from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 

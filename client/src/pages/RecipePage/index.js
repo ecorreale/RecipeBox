@@ -10,8 +10,8 @@ function RecipePage() {
       <Navigation />
       <Wrapper>
         <RecipeHeader
-          ImageSrc="/img/spicebowls.png"
-          RecipeSrc="Member"
+          ImageSrc="/img/recipeBox.png"
+          RecipeSrc="kfn;laskdfn"
           RecipeTitle="Spices Al-la-cart"
         />
       </Wrapper>
