@@ -95,7 +95,7 @@ class RegistrationForm extends Component {
                   type="password"
                   name="passwordConfirm"
                   id="oPasswordConfirm"
-                  placeholder="Confiorm Password"
+                  placeholder="Confirm Password"
                 />
               </FormGroup>
             </Col>

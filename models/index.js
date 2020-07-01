@@ -1,4 +1,4 @@
-const Direction = require('./Direction');
+const mongoose = require('mongoose');
 
 module.exports = {
   User: require('./User'),

@@ -12,24 +12,18 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
   },
-  ingredients: {
-    type: [Ingredient],
-    default: undefined,
-  },
+  ingredients: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Ingredient' }],
+
   preptime: {
     type: String,
   },
   cooktime: {
     type: String,
   },
-  equipment: {
-    type: [Equip],
-    default: undefined,
-  },
-  directions: {
-    type: [Direction],
-    default: undefined,
-  },
+  equipment: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Equip' }],
+
+  directions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Direction' }],
+
   serving: {
     type: Number,
   },
