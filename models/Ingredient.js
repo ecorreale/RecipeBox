@@ -13,4 +13,4 @@ const ingredientSchema = new Schema({
 
 const Ingredient = mongoose.model('Ingredient', ingredientSchema);
 
-module.exports = Ingredient;
+module.exports = { Ingredient, ingredientSchema };

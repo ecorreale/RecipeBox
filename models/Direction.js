@@ -13,4 +13,4 @@ const stepSchema = new Schema({
 
 const Direction = mongoose.model('direction', stepSchema);
 
-module.exports = Direction;
+module.exports = { Direction, directionSchema: stepSchema };

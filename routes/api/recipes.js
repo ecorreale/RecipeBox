@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const recipesController = require('../../controllers/recipesController');
 
-// Matches with "/api/books"
+// Matches with "/api/recipe"
 router.route('/').get(recipesController.findAll).post(recipesController.create);
 
 // Matches with "/api/recipes/:id"
@@ -10,5 +10,4 @@ router
   .get(recipesController.findById)
   .put(recipesController.update)
   .delete(recipesController.remove);
-
 module.exports = router;

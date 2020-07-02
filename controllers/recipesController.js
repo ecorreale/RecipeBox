@@ -16,22 +16,27 @@ module.exports = {
       .catch((err) => res.status(422).json(err));
   },
   create: function (req, res) {
-    db.recipe
-      .create(req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    console.log(req.body);
+    res.json(req.body);
+    // db.recipe
+    //   .create(req.body)
+    //   .then((dbModel) => res.json(dbModel))
+    //   .catch((err) => res.status(422).json(err));
   },
   update: function (req, res) {
-    db.recipe
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    console.log('objectID', req.params.id);
+    console.log(req.body);
+    // db.recipe
+    //   .findOneAndUpdate({ _id: req.params.id }, req.body)
+    //   .then((dbModel) => res.json(dbModel))
+    //   .catch((err) => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.recipe
-      .findById({ _id: req.params.id })
-      .then((dbModel) => dbModel.remove())
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    console.log('objectID', req.params.id);
+    // db.recipe
+    //   .findById({ _id: req.params.id })
+    //   .then((dbModel) => dbModel.remove())
+    //   .then((dbModel) => res.json(dbModel))
+    //   .catch((err) => res.status(422).json(err));
   },
 };
