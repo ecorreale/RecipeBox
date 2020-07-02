@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function Search() {
-  // Van working on
-
   const [query, setQuery] = useState('');
   const [recipes, setRecipes] = useState([]);
   const handleChange = (event) => {
@@ -12,12 +10,13 @@ function Search() {
   };
 
   const searchRecipes = () => {
-    //   axios
-    //     .get('/api/edamam', { params: { q: 'title:' + query } })
-    //     .then((edamamRecipesData) => {
-    //       console.log(edamamRecipesData);
-    //       setRecipes(RecipesData.data.items);
-    //     });
+    console.log('clicked');
+    axios
+      .get('/api/recipes/search', { params: { q: query } })
+      .then((edamamRecipesData) => {
+        console.log(edamamRecipesData);
+        // setRecipes(RecipesData.data.items);
+      });
   };
 
   return (
@@ -27,6 +26,7 @@ function Search() {
           type="button"
           class="btn btn-outline-secondary dropdown-toggle"
           data-toggle="dropdown"
+          onClick={searchRecipes}
         >
           Dropdown button
         </button>
@@ -54,29 +54,3 @@ function Search() {
 }
 
 export default Search;
-
-// return (
-//   <div className="input-group mb-3" style={{ width: '30%' }}>
-//     <div className="input-group-prepend">
-//       <button
-//         onClick={searchRecipes}
-//         className="btn btn-outline-secondary"
-//         type="button"
-//         id="button-addon1"
-//       >
-//         Search
-//       </button>
-//     </div>
-//     <input
-//       onChange={handleChange}
-//       type="text"
-//       className="form-control"
-//       placeholder="Search for Recipe Title"
-//       aria-label="Example text with button addon"
-//       aria-describedby="button-addon1"
-//     />
-//     {recipes.map((r) => {
-//       return <Recipe recipeInfo={r} />;
-//     })}
-//   </div>
-// );
