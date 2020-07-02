@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { MealTypes } from '../Strings';
+import axios from 'axios';
 
 import {
   ButtonDropdown,
@@ -15,11 +16,29 @@ export class SearchBox extends Component {
 
     this.toggle = this.toggle.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.searchRecipes = this.searchRecipes.bind(this);
 
     this.state = {
       dropdownOpen: false,
       dropdownValue: 'All',
+      query: '',
     };
+  }
+
+  handleInputChange(event) {
+    this.setState({ query: event.target.value });
+    console.log(this.state.query);
+  }
+
+  searchRecipes() {
+    console.log('clicked');
+    axios
+      .get('/api/recipes/edamam/search', { params: { q: this.state.query } })
+      .then((edamamRecipesData) => {
+        console.log(edamamRecipesData);
+        // setRecipes(RecipesData.data.items);
+      });
   }
 
   toggle() {
@@ -39,7 +58,11 @@ export class SearchBox extends Component {
     return (
       <div className="input-group mt-3 mb-3">
         <div className="input-group-prepend">
-          <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+          <ButtonDropdown
+            onClick={this.searchRecipes}
+            isOpen={this.state.dropdownOpen}
+            toggle={this.toggle}
+          >
             <Button id="SearchSelector" color="secondary">
               {'Search: ' + this.state.dropdownValue}
             </Button>
@@ -62,6 +85,7 @@ export class SearchBox extends Component {
           type="text"
           className="form-control"
           placeholder="Search Recipe Titles"
+          onChange={this.handleInputChange}
         />
       </div>
     );

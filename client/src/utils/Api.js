@@ -22,9 +22,9 @@ export default {
       'https://api.edamam.com/search?q=' +
         query +
         '&app_id=' +
-        edama_app_key +
+        edamam_app_key +
         '&app_key=' +
-        esamam_app_id
+        edamam_app_id
     );
   },
 };
