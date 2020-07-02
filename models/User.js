@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-// const Recipe = require("./Recipe");
+const Recipe = require('./Recipe').recipeSchema;
 
 const Schema = mongoose.Schema;
 
@@ -18,7 +18,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe' }],
+  recipes: [Recipe],
 });
 
 const User = mongoose.model('user', userSchema);
