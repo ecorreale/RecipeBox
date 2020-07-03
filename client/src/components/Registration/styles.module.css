@@ -1,20 +1,46 @@
 .regForm {
   background-color: white;
-  padding: 15px;
+  padding: 25px;
+  margin: 50px;
+  margin-top: 20px;
+  position: relative;
 }
 
 .formHeaderGroup {
   font-size: larger;
   font-weight: bold;
 
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 10px;
 
   border-bottom: 1px solid;
   border-color: #ededf1;
 }
 
+.wide {
+  width: 100%;
+}
+
+.bodyImage {
+  max-width: 160px;
+}
+.qSection {
+  margin-top: 30px;
+  margin-left: 15px;
+}
 .formImage {
-  float: left;
-  width: 140px;
+  max-width: 160px;
+  margin-top: -25px;
+  margin-left: 80px;
+}
+
+.layer1,
+.formImage {
+  position: absolute;
+  z-index: 1;
+}
+
+.layer2 {
+  position: absolute;
+  z-index: 2;
 }

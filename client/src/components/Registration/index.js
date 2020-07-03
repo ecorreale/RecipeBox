@@ -1,187 +1,376 @@
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
+
+import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import CheckButton from 'react-validation/build/button';
+import { isEmail } from 'validator';
+
+import AuthService from '../../services/auth.service';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Styles from './styles.module.css';
+
 import {
   Col,
   Row,
   ButtonToggle,
-  Form,
-  FormGroup,
+  // Form,
+  // FormGroup,
   Label,
-  Input,
+  // Input,
 } from 'reactstrap';
 
-import styles from './styles.module.css';
-
-class RegistrationForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {};
-  }
-
-  handleSubmit(event, errors, values) {
-    this.setState({ errors, values });
-  }
-
-  render() {
+var myPassword;
+const required = (value) => {
+  myPassword = value;
+  if (!value) {
     return (
-      <div className={styles.regForm}>
-        <Form onSubmit={this.handleSubmit}>
-          <Row form>
-            <Col md={6}></Col>
-            <Col md={6}></Col>
-          </Row>
-          <Row form>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="oEmailAddr">Email</Label>
-                <Input
-                  bsSize="sm"
-                  type="email"
-                  name="email"
-                  id="oEmailAddr"
-                  placeholder="email Address"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={6}>
-              <img
-                className={'img-fluid'}
-                style={{ float: 'left', width: '140px' }}
-                src="/img/fatherCookingClip.jpg"
-                alt="Father Cooking Clipart"
-              />
-            </Col>
-          </Row>
-
-          <Row form>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="oFirstName">First Name</Label>
-                <Input
-                  bsSize="sm"
-                  type="text"
-                  name="oFirstName"
-                  id="oFirstName"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="oLastName">Last Name</Label>
-                <Input bsSize="sm" type="text" name="LastName" id="oLastName" />
-              </FormGroup>
-            </Col>
-          </Row>
-
-          <Row form>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="oPassword">Password</Label>
-                <Input
-                  bsSize="sm"
-                  type="password"
-                  name="password"
-                  id="oPassword"
-                  placeholder="Password"
-                />
-              </FormGroup>
-            </Col>
-            <Col md={6}>
-              <FormGroup>
-                <Label for="oPasswordConfirm">Confirm Password</Label>
-                <Input
-                  bsSize="sm"
-                  type="password"
-                  name="passwordConfirm"
-                  id="oPasswordConfirm"
-                  placeholder="Confirm Password"
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-
-          <Row form>
-            <Col md={12}>
-              <div className={styles.formHeaderGroup}>
-                Where did you hear about us?
-              </div>
-              <ReferenceSource />
-            </Col>
-          </Row>
-
-          <Row form>
-            <Col md={12}>
-              <div className={styles.formHeaderGroup}>Membership Rules</div>
-              <RulesBlock />
-              <p>
-                <FormGroup check>
-                  <Label check>
-                    <Input type="checkbox" /> I have read, understood, and
-                    accepted the rules for membership.
-                  </Label>
-                </FormGroup>
-              </p>
-            </Col>
-          </Row>
-          <Row form>
-            <br />
-            <Col md={{ size: 10, offset: 1 }}>
-              <br />
-              <ButtonToggle color="success"> Sign Up </ButtonToggle>
-            </Col>
-          </Row>
-        </Form>
+      <div className="alert alert-danger" role="alert">
+        This field is required!
       </div>
     );
   }
-}
+};
 
-function RulesBlock() {
+const vConfirmMatch = (value) => {
+  if (myPassword !== value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        Passwords must match.
+      </div>
+    );
+  }
+};
+
+const validEmail = (value) => {
+  if (!isEmail(value)) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        This is not a valid email.
+      </div>
+    );
+  }
+};
+
+// const vusername = (value) => {
+//   if (value.length < 3 || value.length > 20) {
+//     return (
+//       <div className="alert alert-danger" role="alert">
+//         The username must be between 3 and 20 characters.
+//       </div>
+//     );
+//   }
+// };
+
+const vpassword = (value) => {
+  if (value.length < 6 || value.length > 40) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        The password must be between 6 and 40 characters.
+      </div>
+    );
+  }
+};
+
+//  ##############################################
+//            Register Function
+//  ##############################################
+
+const Register = (props) => {
+  const form = useRef();
+  const checkBtn = useRef();
+
+  const [username, setusername] = useState('');
+  const [firstname, setfirstname] = useState('');
+  const [lastname, setlastname] = useState('');
+  const [password, setPassword] = useState('');
+  const [successful, setSuccessful] = useState(false);
+  const [message, setMessage] = useState('');
+  const [confirmPw, setConfirmPw] = useState('');
+  const [acknowledged, setAcknowledged] = useState('');
+
+  const onChangeUsername = (e) => {
+    const username = e.target.value;
+    setusername(username);
+  };
+
+  const onChangeacknowledged = (e) => {
+    const acknowledged = e.target.value;
+    setAcknowledged(acknowledged);
+  };
+
+  const onChangeFirstname = (e) => {
+    const firstname = e.target.value;
+    setfirstname(firstname);
+  };
+
+  const onChangeLastname = (e) => {
+    const lastname = e.target.value;
+    setlastname(lastname);
+  };
+
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  const onChangeConfirmPw = (e) => {
+    const confirmPw = e.target.value;
+    setConfirmPw(confirmPw);
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    setMessage('');
+    setSuccessful(false);
+
+    form.current.validateAll();
+
+    if (checkBtn.current.context._errors.length === 0) {
+      AuthService.register(username, firstname, lastname, password).then(
+        (response) => {
+          console.log(response.data.message);
+          setMessage(response.data.message);
+          setSuccessful(true);
+        },
+
+        (error) => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+          console.log(resMessage);
+          setMessage(resMessage);
+          setSuccessful(false);
+        }
+      );
+    }
+  };
+
   return (
-    <div>
-      <ol>
-        <li>Membership is available to anyone 18 years of age or older.</li>
-        <li>
-          You promise NOT to use to conduct any fraudulent or business activity
-          or have more than one Member Account at any time.
-        </li>
-      </ol>
+    <div className={Styles.regForm}>
+      <Form onSubmit={handleRegister} ref={form}>
+        {!successful && (
+          <div>
+            <Row form>
+              <Col md={6}>
+                <div className="form-group">
+                  <Label htmlFor="username">
+                    Email Address{' '}
+                    <span style={{ fontSize: '10px' }}>
+                      (This will become your username)
+                    </span>
+                  </Label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="username"
+                    value={username}
+                    onChange={onChangeUsername}
+                    validations={[required, validEmail]}
+                  />
+                </div>
+              </Col>
+              <Col md={6}>
+                <img
+                  class="img-fluid"
+                  src="/img/boxClip.gif"
+                  className={Styles.formImage}
+                  alt="Recipe Box Clipart"
+                />
+              </Col>
+            </Row>
+
+            <Row form>
+              <Col md={6}>
+                <div className="form-group">
+                  <Label htmlFor="firstname">First Name</Label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="firstname"
+                    value={firstname}
+                    onChange={onChangeFirstname}
+                    validations={[required]}
+                  />
+                </div>
+              </Col>
+
+              <Col md={6}>
+                <div className="form-group">
+                  <Label htmlFor="lastname">Last Name</Label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="lastname"
+                    value={lastname}
+                    onChange={onChangeLastname}
+                    validations={[required]}
+                  />
+                </div>
+              </Col>
+            </Row>
+
+            <Row form>
+              <Col md={6}>
+                <div className="form-group">
+                  <Label htmlFor="password">Password</Label>
+                  <Input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    value={password}
+                    onChange={onChangePassword}
+                    validations={[required, vpassword]}
+                  />
+                </div>
+              </Col>
+
+              <Col md={6}>
+                <div className="form-group">
+                  <Label htmlFor="confirmPw">Password</Label>
+                  <Input
+                    type="password"
+                    className="form-control"
+                    name="confirmPw"
+                    value={confirmPw}
+                    onChange={onChangeConfirmPw}
+                    validations={[vConfirmMatch]}
+                  />
+                </div>
+              </Col>
+            </Row>
+
+            <Row form>
+              <Col md={12}>
+                <ReferenceSource />
+              </Col>
+            </Row>
+
+            <Row form>
+              <Col md={12}>
+                <div className={Styles.formHeaderGroup}>Membership Rules</div>
+                <div>
+                  <ol>
+                    <li>
+                      Membership is available to anyone 18 years of age or
+                      older.
+                    </li>
+                    <li>
+                      You promise NOT to use to conduct any fraudulent or
+                      business activity or have more than one Member Account at
+                      any time.
+                    </li>
+                  </ol>
+                  <p>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          value={acknowledged}
+                          onChange={onChangeacknowledged}
+                          validations={[required]}
+                        />{' '}
+                        I have read, understood, and accepted the rules for
+                        membership.
+                      </label>
+                    </div>
+                  </p>
+                </div>
+              </Col>
+            </Row>
+            <Row form>
+              <br />
+              <Col md={{ size: 10, offset: 1 }}>
+                <br />
+                <ButtonToggle type="submit" color="success" ref={checkBtn}>
+                  {' '}
+                  Sign Up{' '}
+                </ButtonToggle>
+              </Col>
+            </Row>
+          </div>
+        )}
+        {message && (
+          <div className="form-group">
+            {/* <div>{message}</div> */}
+            <div
+              className={
+                successful ? 'alert alert-success' : 'alert alert-danger'
+              }
+              role="alert"
+            >
+              {/* {message} */}
+            </div>
+          </div>
+        )}
+
+        <CheckButton style={{ display: 'none' }} ref={checkBtn} />
+      </Form>
     </div>
   );
-}
+};
 
 function ReferenceSource() {
   return (
-    <div>
-      Where did you hear about My Recipe Box?
-      <FormGroup check>
-        <Label check>
-          <Input type="checkbox" /> A Friend or colleauge
-        </Label>
-      </FormGroup>
-      <FormGroup check>
-        <Label check>
-          <Input type="checkbox" /> Google
-        </Label>
-      </FormGroup>
-      <FormGroup check>
-        <Label check>
-          <Input type="checkbox" /> Blog Post
-        </Label>
-      </FormGroup>
-      <FormGroup check>
-        <Label check>
-          <Input type="checkbox" /> Forum Post
-        </Label>
-      </FormGroup>
-      <FormGroup check>
-        <Label check>
-          <Input type="checkbox" /> News Article
-        </Label>
-      </FormGroup>
-    </div>
+    <article>
+      <div className={Styles.formHeaderGroup}>Where did you hear about us?</div>
+      <Row>
+        <Col md={2}>
+          <section>
+            <img
+              class="img-fluid"
+              className={Styles.bodyImage}
+              src="/img/fatherCookingClip.jpg"
+              alt="Father Cooking Clipart"
+            />
+          </section>
+        </Col>
+
+        <Col md={9}>
+          <section className={Styles.qSection}>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="Friend"
+                />
+                From a Friend
+              </label>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  value="Google"
+                />
+                Google or other search engine.
+              </label>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="Blog" />
+                Blog or forum post.
+              </label>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox" class="form-check-input" value="News" />
+                New Article
+              </label>
+            </div>
+          </section>
+        </Col>
+      </Row>
+    </article>
   );
 }
-
-export default RegistrationForm;
+export default Register;

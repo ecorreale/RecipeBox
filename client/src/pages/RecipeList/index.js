@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Navigation from '../../components/NavBar';
 import Wrapper from '../../components/Wrapper';
-// import Recipe from '../../components/Recipe'
+import RecipeList from '../../components/RecipeList';
 
-class Recipes extends Component {
+class RecipeListPage extends Component {
   constructor(props) {
     super(props);
   }
@@ -11,9 +11,11 @@ class Recipes extends Component {
     return (
       <div>
         <Navigation />
-        <Wrapper></Wrapper>
+        <Wrapper>
+          <RecipeList />
+        </Wrapper>
       </div>
     );
   }
 }
-export default Recipes;
+export default RecipeListPage;

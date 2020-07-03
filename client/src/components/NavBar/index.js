@@ -62,7 +62,7 @@ class Navigation extends Component {
               </NavItem>
 
               <NavItem>
-                <NavLink href="/Recipe">My Recipies</NavLink>
+                <NavLink href="/MyRecipes">My Recipies</NavLink>
               </NavItem>
 
               <NavItem>

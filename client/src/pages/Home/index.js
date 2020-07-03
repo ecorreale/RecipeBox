@@ -1,21 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Banner from '../../components/Hero';
 import Navigation from '../../components/NavBar';
 import Wrapper from '../../components/Wrapper';
+// import UserService from "../../services/user.service";
 
-class Home extends Component {
-  state = {
-    currentPage: 'Home',
-  };
-  render() {
-    return (
-      <div>
-        <Navigation />
-        <Banner />
-        <Wrapper></Wrapper>
-      </div>
-    );
-  }
-}
+const HomePage = () => {
+  // const [content, setContent] = useState("");
 
-export default Home;
+  // useEffect(() => {
+  //   UserService.getHomePage().then(
+  //     (response) => {
+  //       setContent(response.data);
+  //     },
+  //     (error) => {
+  //       const _content =
+  //         (error.response && error.response.data) ||
+  //         error.message ||
+  //         error.toString();
+
+  //       setContent(_content);
+  //     }
+  //   );
+  // }, []);
+
+  return (
+    <div>
+      <Navigation />
+      <Banner />
+      <Wrapper></Wrapper>
+    </div>
+  );
+};
+
+export default HomePage;
