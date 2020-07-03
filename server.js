@@ -6,13 +6,19 @@ const logger = require('morgan');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const routes = require('./routes');
-const PORT = process.env.PORT || 3001;
+
+// Environment Variables
+const PORT = process.env.PORT;
+const BASE_URL = process.env.BASE_URL;
+const NODE_ENV = process.env.NODE_ENV;
+const MONGODB_URI = process.env.MONGODB_URI;
+
 const app = express();
 
 mongoose.Promise = global.Promise;
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/recipebox', {
+mongoose.connect(MONGODB_URI || 'mongodb://localhost/recipebox', {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -24,7 +30,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var corsOptions = {
-  origin: 'http://localhost:3001',
+  origin: BASE_URL,
 };
 
 app.use(logger('dev'));
@@ -41,7 +47,7 @@ app.use(cookieParser());
 app.use(routes);
 
 // Serve static files from the React app in production.
-if (process.env.NODE_ENV === 'production') {
+if (NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client', 'build')));
 
   // The "catchall" handler: for any request that doesn't match an api
@@ -52,5 +58,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(PORT, function () {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
+  console.log(`🌎 ==> API server running on port ${PORT}!`);
+  console.log('Node Base URL: ' + BASE_URL);
+  console.log('NODE_ENV: ' + NODE_ENV);
+  console.log('MONGODB_URI: ' + MONGODB_URI);
+  console.log('CORS_URL: ' + BASE_URL);
 });
