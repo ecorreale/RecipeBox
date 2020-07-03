@@ -2,6 +2,7 @@
   background-color: white;
   padding: 25px;
   margin: 50px;
+  margin-top: 20px;
   position: relative;
 }
 
@@ -9,7 +10,7 @@
   font-size: larger;
   font-weight: bold;
 
-  margin-top: 25px;
+  margin-top: 15px;
   margin-bottom: 10px;
 
   border-bottom: 1px solid;
