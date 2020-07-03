@@ -17,14 +17,14 @@ export default {
   saveRecipe: function (recipeData) {
     return axios.post('/api/recipes', recipeData);
   },
-  searchEdamam: function (query) {
-    return axios.get(
-      'https://api.edamam.com/search?q=' +
-        query +
-        '&app_id=' +
-        edamam_app_key +
-        '&app_key=' +
-        edamam_app_id
-    );
-  },
+  // searchEdamam: function (query) {
+  //   return axios.get(
+  //     'https://api.edamam.com/search?q=' +
+  //       query +
+  //       '&app_id=' +
+  //       edamam_app_key +
+  //       '&app_key=' +
+  //       edamam_app_id
+  //   );
+  // },
 };
