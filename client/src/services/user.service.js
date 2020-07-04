@@ -4,7 +4,11 @@ import authHeader from './auth-header';
 import HomePage from '../pages/Home';
 
 const API_URL =
-  window.location.protocol + '//' + window.location.hostname + ':3001';
+  window.location.protocol +
+  '//' +
+  window.location.hostname +
+  ':' +
+  window.location.port;
 // const getHomePage = () => {
 //   return ( <HomePage /> )
 // };

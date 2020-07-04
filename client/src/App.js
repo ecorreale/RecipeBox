@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 
 import Search from './components/Search';
 import Home from './pages/Home';
 import Registration from './pages/Register';
 import RecipeListPage from './pages/RecipeList';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './pages/login';
+import SignIn from './pages/SignIn';
+import SignOutPage from './pages/SignOut';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import './App.css';
 
 class App extends Component {
   render() {
@@ -26,7 +26,11 @@ class App extends Component {
             </Route>
 
             <Route path="/SignIn">
-              <Login />
+              <SignIn />
+            </Route>
+
+            <Route path="/SignOut">
+              <SignOutPage />
             </Route>
 
             <Route path="/search">
