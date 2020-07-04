@@ -70,11 +70,7 @@ export class SearchBox extends Component {
 
             <DropdownMenu>
               {MealTypes.map((mealType, index) => (
-                <DropdownItem
-                  key={index}
-                  onClick={this.handleChange}
-                  dropdownValue={mealType}
-                >
+                <DropdownItem key={index} onClick={this.handleChange}>
                   {mealType}
                 </DropdownItem>
               ))}

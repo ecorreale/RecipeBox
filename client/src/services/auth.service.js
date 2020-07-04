@@ -1,24 +1,10 @@
-// login(): POST {username, password} & save JWT to Local Storage
-// logout(): remove JWT from Local Storage
-// register(): POST {username, email, password}
-// getCurrentUser(): get stored user information (including JWT)
-
 import axios from 'axios';
 
 const API_URL =
-  window.location.protocol +
-  '//' +
-  window.location.hostname +
-  ':3001/api/auth/';
+  window.location.protocol + '//' + window.location.hostname + ':3000/api/auth';
 
 const register = (username, firstname, lastname, password) => {
-  console.log('username: ' + username);
-  console.log('firstname: ' + firstname);
-  console.log('lastname: ' + lastname);
-  console.log('password: ' + password);
-  console.log('Posting to: ' + API_URL);
-
-  return axios.post(API_URL + 'signup', {
+  return axios.post(API_URL + '/signup', {
     username,
     firstname,
     lastname,
@@ -26,9 +12,10 @@ const register = (username, firstname, lastname, password) => {
   });
 };
 
-const login = (username, password) => {
+const SignIn = (username, password) => {
+  // Call Node to authenticate
   return axios
-    .post(API_URL + 'signin', {
+    .post(API_URL + '/signin', {
       username,
       password,
     })
@@ -37,21 +24,33 @@ const login = (username, password) => {
         localStorage.setItem('user', JSON.stringify(response.data));
       }
 
-      return response.data;
+      return response;
     });
 };
 
-const logout = () => {
+function SignOut() {
   localStorage.removeItem('user');
-};
+}
 
-const getCurrentUser = () => {
-  return JSON.parse(localStorage.getItem('user'));
-};
+function getCurrentUser() {
+  const token = JSON.parse(localStorage.getItem('user'));
+  return token;
+}
+
+function GetAuthStatus() {
+  const AuthStatus = JSON.parse(localStorage.getItem('user'));
+
+  if (AuthStatus && AuthStatus.accessToken) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 export default {
   register,
-  login,
-  logout,
+  SignOut,
+  SignIn,
   getCurrentUser,
+  GetAuthStatus,
 };

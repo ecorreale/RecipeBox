@@ -1,10 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
+
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
 // import { isEmail } from 'validator';
-import AuthService from '../../services/auth.service';
+import AuthService from '../../Services/auth.service';
+
+// const history = useHistory()
 
 // Required Field Alerter
 const required = (value) => {
@@ -17,7 +20,11 @@ const required = (value) => {
   }
 };
 
-const LoginForm = (props) => {
+// #############################
+// SignIn Form
+// #############################
+const SignInForm = (props) => {
+  // const AuthResponse = null
   const form = useRef();
   const checkBtn = useRef();
 
@@ -48,27 +55,33 @@ const LoginForm = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.login(username, password).then(
-        () => {
-          props.history.push('/profile');
-          window.location.reload();
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-
-          setLoading(false);
-          setMessage(resMessage);
-        }
-      );
+      AuthenticateUser();
     } else {
       setLoading(false);
     }
   };
+
+  function AuthenticateUser() {
+    AuthService.SignIn(username, password).then(
+      (response) => {
+        if (response.data.id) {
+          window.location.href = '/SignIn';
+        }
+      },
+
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+
+        setLoading(false);
+        setMessage(resMessage);
+      }
+    );
+  }
 
   return (
     <div className="col-md-4">
@@ -126,7 +139,7 @@ const LoginForm = (props) => {
     </div>
   );
 };
-
+export default SignInForm;
 //ToDo:-------------------------------
 // function InlineLogin() {
 
@@ -161,7 +174,7 @@ const LoginForm = (props) => {
 //   }
 // }
 
-export default LoginForm;
+// export default LoginForm;
 
 // import React, { Component } from 'react';
 

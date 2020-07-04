@@ -6,10 +6,17 @@ var jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 
 exports.signup = (req, res) => {
+  console.log('======== AuthController: signup() ============');
+  console.log('firstname: ' + req.body.firstname);
+  console.log('lastname: ' + req.body.lastname);
+  console.log('email: ' + req.body.username);
+  console.log('password: ' + req.body.password);
+  console.log('==============================================');
+
   const user = new User({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
-    email: req.body.email,
+    email: req.body.username,
     password: bcrypt.hashSync(req.body.password, 8),
   });
 
@@ -24,10 +31,11 @@ exports.signup = (req, res) => {
 
 exports.signin = (req, res) => {
   User.findOne({
-    email: req.body.email,
+    email: req.body.username,
   }).exec((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
+      consolr.log(err);
       return;
     }
 
@@ -45,7 +53,7 @@ exports.signin = (req, res) => {
     }
 
     var token = jwt.sign({ id: user.id }, config.secret, {
-      expiresIn: 86400, // 24 hours
+      expiresIn: 14400, // 4 hours
     });
 
     res.status(200).send({

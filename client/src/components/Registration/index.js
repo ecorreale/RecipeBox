@@ -5,7 +5,7 @@ import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 import { isEmail } from 'validator';
 
-import AuthService from '../../services/auth.service';
+import AuthService from '../../Services/auth.service';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Styles from './styles.module.css';
 
@@ -129,12 +129,15 @@ const Register = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.register(username, firstname, lastname, password).then(
         (response) => {
-          console.log(response.data.message);
+          console.log('Registration Response');
+          // console.log(response.data.message);
           setMessage(response.data.message);
           setSuccessful(true);
         },
 
         (error) => {
+          console.log('Registration Error:');
+          console.log(error);
           const resMessage =
             (error.response &&
               error.response.data &&
@@ -175,7 +178,7 @@ const Register = (props) => {
               </Col>
               <Col md={6}>
                 <img
-                  class="img-fluid"
+                  className="img-fluid"
                   src="/img/boxClip.gif"
                   className={Styles.formImage}
                   alt="Recipe Box Clipart"
@@ -264,12 +267,13 @@ const Register = (props) => {
                       any time.
                     </li>
                   </ol>
-                  <p>
-                    <div class="form-check">
-                      <label class="form-check-label">
+
+                  <div className="form-group">
+                    <div className="form-check">
+                      <label className="form-check-label">
                         <input
                           type="checkbox"
-                          class="form-check-input"
+                          className="form-check-input"
                           value={acknowledged}
                           onChange={onChangeacknowledged}
                           validations={[required]}
@@ -278,7 +282,7 @@ const Register = (props) => {
                         membership.
                       </label>
                     </div>
-                  </p>
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -296,14 +300,14 @@ const Register = (props) => {
         )}
         {message && (
           <div className="form-group">
-            {/* <div>{message}</div> */}
+            <div>{message.message}</div>
             <div
               className={
                 successful ? 'alert alert-success' : 'alert alert-danger'
               }
               role="alert"
             >
-              {/* {message} */}
+              {message.message}
             </div>
           </div>
         )}
@@ -322,7 +326,7 @@ function ReferenceSource() {
         <Col md={2}>
           <section>
             <img
-              class="img-fluid"
+              className="img-fluid"
               className={Styles.bodyImage}
               src="/img/fatherCookingClip.jpg"
               alt="Father Cooking Clipart"
@@ -332,38 +336,46 @@ function ReferenceSource() {
 
         <Col md={9}>
           <section className={Styles.qSection}>
-            <div class="form-check">
-              <label class="form-check-label">
+            <div className="form-check">
+              <label className="form-check-label">
                 <input
                   type="checkbox"
-                  class="form-check-input"
+                  className="form-check-input"
                   value="Friend"
                 />
                 From a Friend
               </label>
             </div>
 
-            <div class="form-check">
-              <label class="form-check-label">
+            <div className="form-check">
+              <label className="form-check-label">
                 <input
                   type="checkbox"
-                  class="form-check-input"
+                  className="form-check-input"
                   value="Google"
                 />
                 Google or other search engine.
               </label>
             </div>
 
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="Blog" />
+            <div className="form-check">
+              <label className="form-check-label">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  value="Blog"
+                />
                 Blog or forum post.
               </label>
             </div>
 
-            <div class="form-check">
-              <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="News" />
+            <div className="form-check">
+              <label className="form-check-label">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  value="News"
+                />
                 New Article
               </label>
             </div>
