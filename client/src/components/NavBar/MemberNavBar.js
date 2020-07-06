@@ -33,6 +33,10 @@ export default function GuestNavBar() {
             </NavItem>
 
             <NavItem>
+              <NavLink href="/New">New Recipe</NavLink>
+            </NavItem>
+
+            <NavItem>
               <NavLink href="/signOut">Sign Out</NavLink>
             </NavItem>
           </Nav>

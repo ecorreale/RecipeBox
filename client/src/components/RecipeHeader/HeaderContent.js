@@ -11,8 +11,6 @@ class HeaderContent extends Component {
     console.log(props);
   }
 
-  // Temp variables while db is finished
-
   render() {
     var cookTime = 2.5;
     var prepTime = 0.5;

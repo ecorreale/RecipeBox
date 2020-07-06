@@ -8,7 +8,12 @@ const Schema = mongoose.Schema;
 const recipeSchema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' },
 
-  name: {
+  title: {
+    type: String,
+    required: true,
+  },
+
+  description: {
     type: String,
     required: true,
   },
@@ -29,6 +34,10 @@ const recipeSchema = new Schema({
 
   serving: {
     type: Number,
+  },
+
+  image: {
+    type: String,
   },
 });
 

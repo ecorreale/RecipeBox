@@ -9,7 +9,6 @@ function Navigation() {
   console.log('IsAuthenticated: ' + IsAuthenticated);
 
   if (IsAuthenticated) {
-    console.log(IsAuthenticated);
     return <MemberNavBar />;
   }
 

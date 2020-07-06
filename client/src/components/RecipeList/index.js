@@ -1,16 +1,13 @@
 import React from 'react';
-import AuthService from '../../services/auth.service';
-// import {getRecipes} from '../../utils/Api'
-// import UserService from "../../services/user.service";
+import AuthService from '../../Services/auth.service';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './recipeList.css';
 
+const IsAuthenticated = AuthService.IsAuthenticated;
+const currentUser = AuthService.getCurrentUser();
+
 function RecipeList() {
-  const currentUser = AuthService.getCurrentUser();
-
-  // getRecipes
-
   var data = [];
   var TestRow = {
     Id: 1,

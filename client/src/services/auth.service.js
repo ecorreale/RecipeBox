@@ -14,7 +14,9 @@ const register = (username, firstname, lastname, password) => {
 
 const SignIn = (username, password) => {
   // Call Node to authenticate
+
   return axios
+
     .post(API_URL + '/signin', {
       username,
       password,

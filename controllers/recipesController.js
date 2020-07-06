@@ -10,22 +10,25 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+
   findById: function (req, res) {
     console.log('Recipe Controller: findById()');
-    db.recipe
-      .findById(req.params.id)
-      .then((dbModel) => res.json(dbModel))
-      .catch((err) => res.status(422).json(err));
+    // db.recipe
+    //   .findById(req.params.id)
+    //   .then((dbModel) => res.json(dbModel))
+    //   .catch((err) => res.status(422).json(err));
   },
+
   create: function (req, res) {
     console.log('Recipe Controller: Create()');
     console.log(req.body);
     res.json(req.body);
-    // db.recipe
-    //   .create(req.body)
-    //   .then((dbModel) => res.json(dbModel))
-    //   .catch((err) => res.status(422).json(err));
+    db.recipe
+      .create(req.body)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
   },
+
   update: function (req, res) {
     console.log('Recipe Controller: Update()');
     console.log('objectID', req.params.id);
@@ -35,6 +38,7 @@ module.exports = {
     //   .then((dbModel) => res.json(dbModel))
     //   .catch((err) => res.status(422).json(err));
   },
+
   remove: function (req, res) {
     console.log('Recipe Controller: remove()');
     console.log('objectID', req.params.id);
