@@ -9,17 +9,10 @@ import AuthService from '../../Services/auth.service';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Styles from './styles.module.css';
 
-import {
-  Col,
-  Row,
-  ButtonToggle,
-  // Form,
-  // FormGroup,
-  Label,
-  // Input,
-} from 'reactstrap';
+import { Col, Row, ButtonToggle, Label } from 'reactstrap';
 
 var myPassword;
+
 const required = (value) => {
   myPassword = value;
   if (!value) {
@@ -51,16 +44,6 @@ const validEmail = (value) => {
   }
 };
 
-// const vusername = (value) => {
-//   if (value.length < 3 || value.length > 20) {
-//     return (
-//       <div className="alert alert-danger" role="alert">
-//         The username must be between 3 and 20 characters.
-//       </div>
-//     );
-//   }
-// };
-
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
@@ -75,7 +58,7 @@ const vpassword = (value) => {
 //            Register Function
 //  ##############################################
 
-const Register = (props) => {
+const RegistrationForm = (props) => {
   const form = useRef();
   const checkBtn = useRef();
 
@@ -129,8 +112,6 @@ const Register = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.register(username, firstname, lastname, password).then(
         (response) => {
-          console.log('Registration Response');
-          // console.log(response.data.message);
           setMessage(response.data.message);
           setSuccessful(true);
         },
@@ -385,4 +366,4 @@ function ReferenceSource() {
     </article>
   );
 }
-export default Register;
+export default RegistrationForm;

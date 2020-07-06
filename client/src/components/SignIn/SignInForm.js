@@ -4,10 +4,7 @@ import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
-// import { isEmail } from 'validator';
 import AuthService from '../../Services/auth.service';
-
-// const history = useHistory()
 
 // Required Field Alerter
 const required = (value) => {
@@ -20,11 +17,8 @@ const required = (value) => {
   }
 };
 
-// #############################
 // SignIn Form
-// #############################
 const SignInForm = (props) => {
-  // const AuthResponse = null
   const form = useRef();
   const checkBtn = useRef();
 
