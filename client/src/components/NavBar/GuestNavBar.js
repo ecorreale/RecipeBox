@@ -29,10 +29,6 @@ export default function GuestNavBar() {
             </NavItem>
 
             <NavItem>
-              <NavLink>My Recipies</NavLink>
-            </NavItem>
-
-            <NavItem>
               <NavLink href="/SignIn">Sign In</NavLink>
             </NavItem>
 
