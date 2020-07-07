@@ -33,10 +33,6 @@ const recipeSchema = new Schema({
   directions: [Direction],
 
   serving: {
-    type: Number,
-  },
-
-  image: {
     type: String,
   },
 });
