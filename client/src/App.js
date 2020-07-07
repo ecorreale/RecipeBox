@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Recipe from './pages/Recipe';
 import Search from './components/Search';
 import Registration from './pages/Register';
 import RecipeListPage from './pages/RecipeList';
@@ -35,6 +35,10 @@ class App extends Component {
 
             <Route path="/SignOut">
               <SignOutPage />
+            </Route>
+
+            <Route path="/Recipe/:id" component={Recipe}>
+              {/* <Recipe /> */}
             </Route>
 
             <Route path="/search">

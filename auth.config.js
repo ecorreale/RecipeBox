@@ -1,3 +1,3 @@
 module.exports = {
-  secret: 'recipebox-secret-key',
+  secret: '6C9FE9A61879A5E952C32558A33DA',
 };

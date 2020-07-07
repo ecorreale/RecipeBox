@@ -12,9 +12,6 @@ class HeaderContent extends Component {
   }
 
   render() {
-    var cookTime = 2.5;
-    var prepTime = 0.5;
-
     return (
       <article className={Styles.headerDetail_Wrapper}>
         <section className={Styles.headerDetail_Title}>
@@ -28,7 +25,7 @@ class HeaderContent extends Component {
             Prep Time:
             <span className={Styles.hours}>
               {' '}
-              <this.getTimeFormatted time={prepTime} />
+              <this.getTimeFormatted time={this.props.prepTime} />
             </span>
           </div>
 
@@ -36,8 +33,20 @@ class HeaderContent extends Component {
             Cook Time:
             <span className={Styles.hours}>
               {' '}
-              <this.getTimeFormatted time={cookTime} />
+              <this.getTimeFormatted time={this.props.cookTime} />
             </span>
+          </div>
+          <div>
+            directions:
+            <div>{this.props.directions}</div>
+          </div>
+          <div>
+            ingredients:
+            <div>{this.props.ingredients}</div>
+            <div>
+              equipments:
+              <div>{this.props.equipment}</div>
+            </div>
           </div>
         </section>
       </article>
