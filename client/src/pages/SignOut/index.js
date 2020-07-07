@@ -9,9 +9,7 @@ export default function SignOutPage() {
   return (
     <div>
       <Navigation />
-      <Wrapper>
-        <h2>Hope to see you again soon</h2>
-      </Wrapper>
+      <Wrapper>{(window.location.href = '/')}</Wrapper>
     </div>
   );
 }
