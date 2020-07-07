@@ -29,7 +29,7 @@ export default function GuestNavBar() {
             </NavItem>
 
             <NavItem>
-              <NavLink href="/MyRecipes">My Recipies</NavLink>
+              <NavLink href="/MyRecipes">My Recipes</NavLink>
             </NavItem>
 
             <NavItem>

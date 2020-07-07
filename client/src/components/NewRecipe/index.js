@@ -1,10 +1,10 @@
 import React, { useState, useRef, useContext } from 'react';
-
+import { useHistory } from 'react-router-dom';
 import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
-import RecipeService from '../../Services/recipie.service';
+import { Create } from '../../Services/recipe.service';
 import AuthService from '../../Services/auth.service';
 import { Textbox, Textarea } from '../../FormComponents/Fields';
 
@@ -28,6 +28,7 @@ const required = (value) => {
 const NewRecipeForm = (props) => {
   const form = useRef();
   const checkBtn = useRef();
+  const history = useHistory();
 
   // State Variables
   const [title, setTitle] = useState('');
@@ -40,7 +41,7 @@ const NewRecipeForm = (props) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [successful, setSuccessful] = useState('');
-  const [Servings, setServings] = useState('');
+  const [servings, setServings] = useState('');
 
   const handleNewRecipe = (e) => {
     e.preventDefault();
@@ -49,29 +50,38 @@ const NewRecipeForm = (props) => {
     setSuccessful(false);
 
     form.current.validateAll();
+    const newRecipe = {
+      title,
+      ingredients,
+      prepTime,
+      cookTime,
+      servings,
+      directions,
+      equipment,
+    };
+    // if (checkBtn.current.context._errors.length === 0) {
+    Create(newRecipe).then(
+      (response) => {
+        setMessage(response.data.message);
+        // setSuccessful(true);
+        history.push('/MyRecipes');
+      },
 
-    if (checkBtn.current.context._errors.length === 0) {
-      RecipeService.Create().then(
-        (response) => {
-          setMessage(response.data.message);
-          setSuccessful(true);
-        },
-
-        (error) => {
-          console.log('Registration Error:');
-          console.log(error);
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-          console.log(resMessage);
-          setMessage(resMessage);
-          setSuccessful(false);
-        }
-      );
-    }
+      (error) => {
+        console.log('Registration Error:');
+        console.log(error);
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        console.log(resMessage);
+        setMessage(resMessage);
+        setSuccessful(false);
+      }
+    );
+    // }
   };
 
   return (
@@ -83,10 +93,13 @@ const NewRecipeForm = (props) => {
               <Col md={12}>
                 <Textbox
                   name="Title"
-                  label="Recipie Title"
+                  label="Recipe Title"
                   Inline={true}
-                  onChange={(e) => setTitle(e.target.value)}
-                  validation={['Required']}
+                  handleChange={(e) => {
+                    console.log(e.target.value);
+                    setTitle(e.target.value);
+                  }}
+                  // validation={['Required']}
                 />
               </Col>
             </Row>
@@ -96,7 +109,7 @@ const NewRecipeForm = (props) => {
                 <Textbox
                   name="CookTime"
                   label="Cook Time"
-                  onChange={(e) => setCookTime(e.target.value)}
+                  handleChange={(e) => setCookTime(e.target.value)}
                   validation={['Required']}
                 />
               </Col>
@@ -105,7 +118,7 @@ const NewRecipeForm = (props) => {
                   name="PrepTime"
                   label="Prep Time"
                   Inline={true}
-                  onChange={(e) => setPrepTime(e.target.value)}
+                  handleChange={(e) => setPrepTime(e.target.value)}
                   validation={['Required']}
                 />
               </Col>
@@ -114,7 +127,7 @@ const NewRecipeForm = (props) => {
                   name="Servings"
                   label="Servings"
                   Inline={true}
-                  onChange={(e) => setServings(e.target.value)}
+                  handleChange={(e) => setServings(e.target.value)}
                   validation={['Required']}
                 />
               </Col>
@@ -124,10 +137,23 @@ const NewRecipeForm = (props) => {
             <Row form>
               <Col md={6}>
                 <Textarea
+                  name="equipment"
+                  label="equipment"
+                  Inline={true}
+                  handleChange={(e) => setEquipment(e.target.value)}
+                  validation={['Required']}
+                />
+              </Col>
+              <Col md={6}></Col>
+            </Row>
+
+            <Row form>
+              <Col md={6}>
+                <Textarea
                   name="Ingredients"
                   label="Ingredients List"
                   Inline={true}
-                  onChange={(e) => setIngredients(e.target.value)}
+                  handleChange={(e) => setIngredients(e.target.value)}
                   validation={['Required']}
                 />
               </Col>
@@ -140,7 +166,7 @@ const NewRecipeForm = (props) => {
                   name="Directions"
                   label="Instructions"
                   Inline={true}
-                  onChange={(e) => setDirections(e.target.value)}
+                  handleChange={(e) => setDirections(e.target.value)}
                   validation={['Required']}
                 />
               </Col>
@@ -148,12 +174,11 @@ const NewRecipeForm = (props) => {
             </Row>
 
             <Row form>
-              <Col md={6}></Col>
-              <Col md={6}></Col>
-            </Row>
-
-            <Row form>
-              <Col md={6}></Col>
+              <Col md={6}>
+                <button type="submit" class="btn btn-primary">
+                  Save
+                </button>
+              </Col>
               <Col md={6}></Col>
             </Row>
           </div>

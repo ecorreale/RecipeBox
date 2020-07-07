@@ -13,26 +13,32 @@ const recipeSchema = new Schema({
     required: true,
   },
 
-  description: {
-    type: String,
-    required: true,
-  },
+  // description: {
+  //   type: String,
+  //   required: true,
+  // },
 
-  ingredients: [Ingredient],
-
-  preptime: {
+  ingredients: {
     type: String,
   },
 
-  cooktime: {
+  prepTime: {
     type: String,
   },
 
-  equipment: [Equip],
+  cookTime: {
+    type: String,
+  },
 
-  directions: [Direction],
+  equipment: {
+    type: String,
+  },
 
-  serving: {
+  directions: {
+    type: String,
+  },
+
+  servings: {
     type: String,
   },
 });

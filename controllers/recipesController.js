@@ -4,8 +4,7 @@ const db = require('../models');
 module.exports = {
   findAll: function (req, res) {
     console.log('Recipe Controller: findAll');
-    db.recipe
-      .find(req.query)
+    db.Recipe.find(req.query)
       .sort({ date: -1 })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
@@ -13,20 +12,21 @@ module.exports = {
 
   findById: function (req, res) {
     console.log('Recipe Controller: findById()');
-    // db.recipe
-    //   .findById(req.params.id)
-    //   .then((dbModel) => res.json(dbModel))
-    //   .catch((err) => res.status(422).json(err));
+    db.Recipe.findById(req.params.id)
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
   },
 
   create: function (req, res) {
     console.log('Recipe Controller: Create()');
     console.log(req.body);
-    res.json(req.body);
-    db.recipe
-      .create(req.body)
-      .then((dbModel) => res.json(dbModel))
+    // res.json(req.body);
+    db.Recipe.create(req.body)
+      .then(function (dbModel) {
+        res.json(dbModel);
+      })
       .catch((err) => res.status(422).json(err));
+    // .catch(function(err) {res.status(422)});
   },
 
   update: function (req, res) {
