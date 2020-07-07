@@ -40,6 +40,7 @@ const NewRecipeForm = (props) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [successful, setSuccessful] = useState('');
+  const [Servings, setServings] = useState('');
 
   const handleNewRecipe = (e) => {
     e.preventDefault();
@@ -105,6 +106,15 @@ const NewRecipeForm = (props) => {
                   label="Prep Time"
                   Inline={true}
                   onChange={(e) => setPrepTime(e.target.value)}
+                  validation={['Required']}
+                />
+              </Col>
+              <Col md={1}>
+                <Textbox
+                  name="Servings"
+                  label="Servings"
+                  Inline={true}
+                  onChange={(e) => setServings(e.target.value)}
                   validation={['Required']}
                 />
               </Col>
