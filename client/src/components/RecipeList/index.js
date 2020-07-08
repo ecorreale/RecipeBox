@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllRecipes } from '../../Services/recipe.service.js';
+import { getAllRecipes } from '../../Services/RecipeService';
 import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './recipeList.css';

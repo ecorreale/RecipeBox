@@ -4,7 +4,7 @@ import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
-import { Create } from '../../Services/recipe.service.js';
+import { Create } from '../../Services/RecipeService';
 // import AuthService from '../../Services/auth.service';
 import { Textbox, Textarea } from '../../FormComponents/Fields';
 
