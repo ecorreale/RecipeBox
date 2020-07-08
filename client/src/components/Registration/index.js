@@ -306,8 +306,7 @@ function ReferenceSource() {
         <Col md={2}>
           <section>
             <img
-              className="img-fluid"
-              className={Styles.bodyImage}
+              className={Styles.bodyImage + ' img-fluid'}
               src="/img/fatherCookingClip.jpg"
               alt="Father Cooking Clipart"
             />
@@ -315,14 +314,10 @@ function ReferenceSource() {
         </Col>
 
         <Col md={9}>
-          <section className={Styles.qSection}>
+          <section className={Styles.qSection + ' form-check-input'}>
             <div className="form-check">
               <label className="form-check-label">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  value="Friend"
-                />
+                <input type="checkbox" value="Friend" />
                 From a Friend
               </label>
             </div>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import SignInForm from './SignInForm';
 import AuthService from '../../Services/auth.service';
 
