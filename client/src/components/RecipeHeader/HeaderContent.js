@@ -36,14 +36,15 @@ class HeaderContent extends Component {
               <this.getTimeFormatted time={this.props.cookTime} />
             </span> */}
           </div>
-          <div>
-            Directions:
+          <div className={Styles.directions}>
+            > Directions:
             <div>{this.props.directions}</div>
           </div>
-          <div>
+
+          <div className={Styles.ingredients}>
             Ingredients:
             <div>{this.props.ingredients}</div>
-            <div>
+            <div className={Styles.equipment}>
               Equipments:
               <div>{this.props.equipment}</div>
             </div>
