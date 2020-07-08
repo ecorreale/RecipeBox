@@ -7,14 +7,13 @@
     "node": "12.x",
     "npm": "6.x"
   },
-  
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"cross-env nodemon server.js\" \"npm run client\"",
     "client": "cd client && npm start",
     "install": "cd client && npm install",
-    "build": "cd client && npm build",
+    "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm run build",
     "seed": "node scripts/seedDB.js"
   },
