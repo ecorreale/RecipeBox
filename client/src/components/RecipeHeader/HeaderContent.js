@@ -23,28 +23,29 @@ class HeaderContent extends Component {
 
           <div className={Styles.prepTime}>
             Prep Time:
-            <span className={Styles.hours}>
+            {/* <span className={Styles.hours}>
               {' '}
               <this.getTimeFormatted time={this.props.prepTime} />
-            </span>
+            </span> */}
           </div>
 
           <div className={Styles.cookTime}>
             Cook Time:
-            <span className={Styles.hours}>
+            {/* <span className={Styles.hours}>
               {' '}
               <this.getTimeFormatted time={this.props.cookTime} />
-            </span>
+            </span> */}
           </div>
-          <div>
-            directions:
+          <div className={Styles.directions}>
+            > Directions:
             <div>{this.props.directions}</div>
           </div>
-          <div>
-            ingredients:
+
+          <div className={Styles.ingredients}>
+            Ingredients:
             <div>{this.props.ingredients}</div>
-            <div>
-              equipments:
+            <div className={Styles.equipment}>
+              Equipments:
               <div>{this.props.equipment}</div>
             </div>
           </div>
