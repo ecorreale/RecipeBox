@@ -37,7 +37,7 @@ class HeaderContent extends Component {
             </span> */}
           </div>
           <div className={Styles.directions}>
-            > Directions:
+            Directions:
             <div>{this.props.directions}</div>
           </div>
 

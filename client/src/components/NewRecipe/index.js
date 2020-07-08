@@ -4,8 +4,8 @@ import Form from 'react-validation/build/form';
 // import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
-import { Create } from '../../Services/recipe.service';
-import AuthService from '../../Services/auth.service';
+import { Create } from '../../Services/recipe.service.js';
+// import AuthService from '../../Services/auth.service';
 import { Textbox, Textarea } from '../../FormComponents/Fields';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
