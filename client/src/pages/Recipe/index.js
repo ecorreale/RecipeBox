@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navigation from '../../components/NavBar';
 import Wrapper from '../../components/Wrapper';
+
 import { getRecipeById } from '../../Services/recipe.service';
 
 import RecipeHeader from '../../components/RecipeHeader';
@@ -14,6 +15,7 @@ function RecipePage(props) {
       setRecipe(recipe.data);
     });
   }, []);
+
   return (
     <div>
       <Helmet>
@@ -31,5 +33,5 @@ function RecipePage(props) {
     </div>
   );
 }
-// }
+
 export default RecipePage;
