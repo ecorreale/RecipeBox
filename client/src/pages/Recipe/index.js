@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navigation from '../../components/NavBar';
 import Wrapper from '../../components/Wrapper';
 
-import { getRecipeById } from '../../Services/recipe.service';
+// import { getRecipeById } from '../../Services/recipe.service';
 
 import RecipeHeader from '../../components/RecipeHeader';
 import { Helmet } from 'react-helmet';
@@ -10,11 +10,11 @@ import { Helmet } from 'react-helmet';
 function RecipePage(props) {
   const [recipe, setRecipe] = useState({});
 
-  useEffect(() => {
-    getRecipeById(props.match.params.id).then((recipe) => {
-      setRecipe(recipe.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getRecipeById(props.match.params.id).then((recipe) => {
+  //     setRecipe(recipe.data);
+  //   });
+  // }, []);
 
   return (
     <div>
