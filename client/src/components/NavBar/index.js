@@ -2,7 +2,7 @@ import React from 'react';
 
 import GuestNavBar from './GuestNavBar';
 import MemberNavBar from './MemberNavBar';
-import AuthService from '../../Services/auth.service.js';
+import AuthService from '../../services/AuthService.js';
 
 var IsAuthenticated = AuthService.GetAuthStatus();
 function Navigation() {
