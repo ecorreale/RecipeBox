@@ -5,7 +5,6 @@ import Registration from './pages/Register';
 import RecipeListPage from './pages/RecipeList';
 import NewRecipePage from './pages/NewRecipe';
 import SignIn from './pages/SignIn';
-import SignOutPage from './pages/SignOut';
 import HomePage from './pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -50,10 +49,6 @@ class App extends Component {
 
             <Route path="/SignIn">
               <SignIn />
-            </Route>
-
-            <Route path="/SignOut">
-              <SignOutPage />
             </Route>
 
             <Route path="/Recipe/:id" component={Recipe}>
