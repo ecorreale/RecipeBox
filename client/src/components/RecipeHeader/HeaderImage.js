@@ -1,24 +1,7 @@
 import React from 'react';
-
 import Styles from './RecipeHeader.module.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBookmark } from '@fortawesome/free-regular-svg-icons';
-
-import {
-  Card,
-  CardBody,
-  CardImg,
-  CardFooter,
-  Button,
-  UncontrolledPopover,
-  PopoverHeader,
-  PopoverBody,
-} from 'reactstrap';
-
-function HandleSave(props) {
-  console.log('Clicked the save button');
-}
+import { Card, CardBody, CardImg, CardFooter } from 'reactstrap';
 
 function HeaderImage(props) {
   console.log('ImageWrapper');

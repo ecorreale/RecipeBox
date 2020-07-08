@@ -104,3 +104,4 @@ dist
 .tern-port
 /Testing
 /Project3_Workspace.code-workspace
+/client/src/components/SearchBox

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import Recipe from './pages/Recipe';
-import Search from './components/Search';
 import Registration from './pages/Register';
 import RecipeListPage from './pages/RecipeList';
 import NewRecipePage from './pages/NewRecipe';
@@ -11,10 +11,29 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.css';
 
+const HEAD = () => {
+  return (
+    <div>
+      <Helmet>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Web site created using create-react-app"
+        />
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+      </Helmet>
+    </div>
+  );
+};
+
 class App extends Component {
   render() {
     return (
       <div>
+        <HEAD />
+
         <Router>
           <Switch>
             <Route path="/MyRecipes">
@@ -39,10 +58,6 @@ class App extends Component {
 
             <Route path="/Recipe/:id" component={Recipe}>
               {/* <Recipe /> */}
-            </Route>
-
-            <Route path="/search">
-              <Search />
             </Route>
 
             <Route path="/">
