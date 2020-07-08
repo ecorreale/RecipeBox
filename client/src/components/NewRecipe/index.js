@@ -81,7 +81,6 @@ const NewRecipeForm = (props) => {
         setSuccessful(false);
       }
     );
-    // }
   };
 
   return (
@@ -99,7 +98,7 @@ const NewRecipeForm = (props) => {
                     console.log(e.target.value);
                     setTitle(e.target.value);
                   }}
-                  // validation={['Required']}
+                  validation={['Required']}
                 />
               </Col>
             </Row>
@@ -148,16 +147,18 @@ const NewRecipeForm = (props) => {
             </Row>
 
             <Row form>
-              <Col md={6}>
-                <Textarea
+              <Col md={12}>
+                <RecipeRow />
+
+                {/* <Textarea
                   name="Ingredients"
                   label="Ingredients List"
                   Inline={true}
                   handleChange={(e) => setIngredients(e.target.value)}
                   validation={['Required']}
-                />
+                /> */}
               </Col>
-              <Col md={6}></Col>
+              {/* <Col md={6}></Col> */}
             </Row>
 
             <Row form>
@@ -184,6 +185,64 @@ const NewRecipeForm = (props) => {
           </div>
         )}
       </Form>
+    </div>
+  );
+};
+
+const RecipeRow = (props) => {
+  const CookingUnits = [
+    'tsp',
+    'tbsp',
+    'fl oz',
+    'cup',
+    'pint',
+    'quart',
+    'oz',
+    'Pound',
+    'each',
+  ];
+  return (
+    <div className="row">
+      {/* Quantity */}
+      <div className="col-xs-1">
+        <div className="form-group formCell">
+          <label className="sr-only" for="qty">
+            Qty
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="qty"
+            placeholder="Qty"
+          />
+        </div>
+      </div>
+
+      {/* Units of measure */}
+      <div className="col-xs-2">
+        <div className="form-group">
+          <select id="units">
+            {CookingUnits.map((item) => (
+              <option value={item}> {item} </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      {/* ingredient Text */}
+      <div className="col-xs-7">
+        <div className="form-group">
+          <label className="sr-only" for="ingredient">
+            Qty
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="ingredient"
+            placeholder="ingredient"
+          />
+        </div>
+      </div>
     </div>
   );
 };

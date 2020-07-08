@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import AuthService from '../../Services/auth.service';
 import { getAllRecipes } from '../../Services/recipe.service';
+import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './recipeList.css';
-
-const IsAuthenticated = AuthService.IsAuthenticated;
-const currentUser = AuthService.getCurrentUser();
 
 function RecipeList() {
   const [recipeList, setRecipeList] = useState([]);
@@ -16,27 +13,12 @@ function RecipeList() {
       setRecipeList(recipes.data);
     });
   }, []);
-  // var data = [];
-  // var TestRow = {
-  //   Id: 1,
-  //   name: 'Beef, ale & mushroom pie',
-  //   serving: 4,
-  //   cookTime: 2.5,
-  //   prepTime: 1.25,
-  // };
-  // data.push(TestRow);
-
-  // TestRow = {
-  //   Id: 2,
-  //   name: 'Beef Wellington',
-  //   serving: 4,
-  //   cookTime: 2.5,
-  //   prepTime: 2.5,
-  // };
-  // data.push(TestRow);
 
   return (
     <section>
+      <Helmet>
+        <title>Recipe List</title>
+      </Helmet>
       <br />
       <h6>Recipes you have saved to your RecipeBox</h6>
       <table class="table table-hover table-sm">
@@ -61,7 +43,6 @@ function RecipeList() {
 function TableRow({ RowData, RowNum }) {
   return (
     <tr key={RowNum}>
-      {/* <th scope="row">{RowNum}</th> */}
       <td>
         <a href={`/Recipe/${RowData._id}`}>{RowData.title}</a>
       </td>

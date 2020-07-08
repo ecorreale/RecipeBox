@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from 'react';
+import React, { useState, useRef } from 'react';
 
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -6,7 +6,6 @@ import CheckButton from 'react-validation/build/button';
 
 import AuthService from '../../Services/auth.service';
 
-// Required Field Alerter
 const required = (value) => {
   if (!value) {
     return (
