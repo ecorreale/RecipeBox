@@ -1,6 +1,6 @@
 import React from 'react';
 import SignInForm from './SignInForm';
-import AuthService from '../../Services/auth.service';
+import AuthService from '../../Services/auth.service.js';
 
 export default function SignIn(props) {
   const IsAuthenticated = AuthService.GetAuthStatus();
