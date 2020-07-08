@@ -3,10 +3,15 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ingredientSchema = new Schema({
-  amount: {
+  qty: {
+    type: Number,
+  },
+
+  unit: {
     type: String,
   },
-  name: {
+
+  ingredient: {
     type: String,
   },
 });

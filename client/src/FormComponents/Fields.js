@@ -1,25 +1,11 @@
 import React from 'react';
-
-import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
-
-import { isEmail } from 'validator';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-export default function vForm() {
-  return Form;
-}
-
-// export function TextBoxInline(props) {
-
-//   return (
-
-//   )
-//   }
+import './styles.module.css';
 
 export function Textbox(props) {
-  var labelClass = props.Inline ? 'col-sm-2 col-form-label' : 'form-label';
-  var inputClass =
+  const labelClass = props.Inline ? 'col-sm-2 col-form-label' : 'form-label';
+  const inputClass =
     'form-control, form-control-sm' + (props.Inline ? 'col-sm-10' : '');
   const groupClass = 'form-group' + (props.Inline ? +'row' : '');
 
@@ -33,24 +19,20 @@ export function Textbox(props) {
         {props.label}
       </label>
 
-      <div className={inputClass}>
-        <Input
-          className="form-control"
-          name={props.name}
-          type="text"
-          value={props.value}
-          onChange={props.handleChange}
-          placeholder={props.placeholder}
-          validations={props.validations}
-        />
-      </div>
+      <Input
+        className="form-control"
+        name={props.name}
+        type="text"
+        value={props.value}
+        placeholder={props.placeholder}
+      />
     </div>
   );
 }
 
 export function Textarea(props) {
-  var labelClass = props.Inline ? 'col-sm-2 col-form-label' : 'form-label';
-  var inputClass =
+  const labelClass = props.Inline ? 'col-sm-2 col-form-label' : 'form-label';
+  const inputClass =
     'form-control, form-control-sm' + (props.Inline ? 'col-sm-10' : '');
   const groupClass = 'form-group' + (props.Inline ? +'row' : '');
 
@@ -70,7 +52,6 @@ export function Textarea(props) {
           name={props.name}
           type="text"
           value={props.value}
-          onChange={props.handleChange}
           placeholder={props.placeholder}
           validations={props.validations}
         />
@@ -120,14 +101,4 @@ export function DropDown(props) {
       </select>
     </div>
   );
-}
-
-function Required(value) {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
 }

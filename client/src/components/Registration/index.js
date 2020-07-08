@@ -159,9 +159,8 @@ const RegistrationForm = (props) => {
               </Col>
               <Col md={6}>
                 <img
-                  className="img-fluid"
+                  className={Styles.formImage + ' img-fluid'}
                   src="/img/boxClip.gif"
-                  className={Styles.formImage}
                   alt="Recipe Box Clipart"
                 />
               </Col>

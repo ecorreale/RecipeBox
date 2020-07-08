@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import GuestNavBar from './GuestNavBar';
 import MemberNavBar from './MemberNavBar';

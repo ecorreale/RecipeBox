@@ -4,18 +4,21 @@ import Wrapper from '../../components/Wrapper';
 import { getRecipeById } from '../../Services/recipe.service';
 
 import RecipeHeader from '../../components/RecipeHeader';
+import { Helmet } from 'react-helmet';
 
 function RecipePage(props) {
   const [recipe, setRecipe] = useState({});
+
   useEffect(() => {
-    console.log(props);
     getRecipeById(props.match.params.id).then((recipe) => {
-      console.log(recipe);
       setRecipe(recipe.data);
     });
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>{recipe.title}</title>
+      </Helmet>
       <Navigation />
       <Wrapper>
         <RecipeHeader
