@@ -4,6 +4,7 @@ import Banner from '../../components/Hero';
 import Navigation from '../../components/NavBar';
 import Wrapper from '../../components/Wrapper';
 import { Helmet } from 'react-helmet';
+import Section from '../../components/Section';
 
 const HomePage = () => {
   return (
@@ -20,6 +21,9 @@ const HomePage = () => {
       <main>
         <Wrapper></Wrapper>
       </main>
+      <body>
+        <Section></Section>
+      </body>
     </article>
   );
 };

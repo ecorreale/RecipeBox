@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navigation from '../../components/NavBar';
 import Wrapper from '../../components/Wrapper';
 
-// import { getRecipeById } from '../../services/recipe.service';
+// import { getRecipeById } from '../../services/RecipeService';
 
 import RecipeHeader from '../../components/RecipeHeader';
 import { Helmet } from 'react-helmet';
