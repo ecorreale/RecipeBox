@@ -28,7 +28,7 @@ https://github.com/ecorreale/RecipeBox
 
 ## Deploy Heroku link
 
-https://recipeboxclt.herokuapp.com/
+https://recipeboxclt.herokuapp.com
 
 ## Installation
 
