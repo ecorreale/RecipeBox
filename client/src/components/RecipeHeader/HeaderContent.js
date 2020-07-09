@@ -54,20 +54,20 @@ class HeaderContent extends Component {
     );
   }
 
-  getTimeFormatted(props) {
-    const hrs = ' HRS';
-    const hr = ' HR';
+  // getTimeFormatted(props) {
+  //   const hrs = ' HRS';
+  //   const hr = ' HR';
 
-    var time = props.time;
-    var timeUnits;
+  //   var time = props.time;
+  //   var timeUnits;
 
-    timeUnits = hr;
-    if (time > 1) {
-      timeUnits = hrs;
-    }
-    var displayValue = time + timeUnits;
-    return displayValue;
-  }
+  //   timeUnits = hr;
+  //   if (time > 1) {
+  //     timeUnits = hrs;
+  //   }
+  //   var displayValue = time + timeUnits;
+  //   return displayValue;
+  // }
 }
 
 export default HeaderContent;

@@ -6,12 +6,15 @@ function Banner() {
     <div>
       <Jumbotron
         style={{
-          backgroundImage: `url('/img/MakingPasta.png')`,
+          // backgroundImage: `url('/img/spiceBowls.png')`,
           backgroundSize: 'cover',
+          textAlign: 'center',
         }}
       >
-        <h1>The Recipe Box</h1>
-        <p>Create, Import, and organize your recipes online.</p>
+        <h1 style={{ color: 'black' }}>The Recipe Box</h1>
+        <p style={{ color: 'black' }}>
+          Create, Save, and organize your recipes online.
+        </p>
       </Jumbotron>
     </div>
   );
