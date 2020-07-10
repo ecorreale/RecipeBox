@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { getAllRecipes } from '../../Services/recipe.service';
-import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './recipeList.css';
 
@@ -16,9 +15,6 @@ function RecipeList() {
 
   return (
     <section>
-      <Helmet>
-        <title>Recipe List</title>
-      </Helmet>
       <br />
       <h6>Recipes you have saved to your RecipeBox</h6>
       <table class="table table-hover table-sm">

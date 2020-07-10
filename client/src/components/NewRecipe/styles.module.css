@@ -5,3 +5,26 @@
   margin-top: 20px;
   position: relative;
 }
+.rowGroup {
+  margin-bottom: 2px;
+  padding-left: 2px;
+  padding-right: 1px;
+}
+
+.formGroup {
+  margin-bottom: 2px;
+}
+
+.ingredientLink {
+  font-size: smaller;
+}
+
+.formBox {
+  border: 1px solid black;
+}
+
+/* .headerRow {
+
+  margin-left:15px;
+
+} */
