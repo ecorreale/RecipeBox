@@ -19,11 +19,10 @@ const HomePage = () => {
         <Banner />
       </header>
       <main>
-        <Wrapper></Wrapper>
+        <Wrapper>
+          <Section />
+        </Wrapper>
       </main>
-      <body>
-        <Section></Section>
-      </body>
     </article>
   );
 };
