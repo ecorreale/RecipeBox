@@ -30,7 +30,7 @@ function RecipeList() {
         </thead>
         <tbody>
           {recipeList.map((row, index) => {
-            return <TableRow RowData={row} RowNum={index} />;
+            return <TableRow key={index} RowData={row} RowNum={index} />;
           })}
         </tbody>
       </table>
