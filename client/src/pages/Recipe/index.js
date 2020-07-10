@@ -27,7 +27,13 @@ function RecipePage(props) {
           ImageSrc="/img/recipeBox.png"
           RecipeSrc={recipe.servings}
           RecipeTitle={recipe.title}
-          {...recipe}
+          RecipeCookTime={recipe.cookTime}
+          RecipeDirections={recipe.directions}
+          RecipeDescription={recipe.description}
+          RecipeEquipment={recipe.equipment}
+          RecipeIngredients={recipe.ingredients}
+          RecipePrepTime={recipe.prepTime}
+          RecipeServings={recipe.servings}
         />
       </Wrapper>
     </div>

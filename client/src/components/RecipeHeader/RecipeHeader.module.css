@@ -48,7 +48,10 @@
 }
 
 .prepTime,
-.cookTime {
+.cookTime,
+.directions,
+.ingredients,
+.equipment {
   display: block;
   padding-bottom: 15px;
   line-height: 14px;
