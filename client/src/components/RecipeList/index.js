@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { getAllRecipes } from '../../services/RecipeService';
+import RecipeService from '../../services/RecipeService';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './recipeList.css';
@@ -9,7 +9,7 @@ function RecipeList() {
   const [recipeList, setRecipeList] = useState([]);
 
   useEffect(() => {
-    getAllRecipes().then((recipes) => {
+    RecipeService.getAllRecipes().then((recipes) => {
       console.log(recipes);
       setRecipeList(recipes.data);
     });
@@ -19,8 +19,8 @@ function RecipeList() {
     <section>
       <br />
       <h6>Recipes you have saved to your RecipeBox</h6>
-      <table class="table table-hover table-sm">
-        <thead class="thead-light">
+      <table classclass="table table-hover table-sm">
+        <thead className="thead-light">
           <tr>
             <th scope="col">Title</th>
             <th scope="col">Servings</th>

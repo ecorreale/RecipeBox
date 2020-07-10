@@ -2,17 +2,42 @@ import axios from 'axios';
 
 const API_URL = '/api/recipes';
 
-export const Create = (newRecipe) => {
+const CreateRecipe = (
+  author,
+  title,
+  description,
+  ingredients,
+  prepTime,
+  cookTime,
+  servings,
+  equipment,
+  directions
+) => {
   console.log('----Recipe Service Axios Call----');
-  console.log('API_URL: ' + API_URL);
-  console.log(newRecipe);
-  return axios.post('/api/recipes', newRecipe);
+
+  return axios.post('/api/recipes', {
+    author,
+    title,
+    description,
+    ingredients,
+    prepTime,
+    cookTime,
+    servings,
+    equipment,
+    directions,
+  });
 };
 
-export const getAllRecipes = () => {
+const getAllRecipes = () => {
   return axios.get(API_URL);
 };
 
-export const getRecipeById = (id) => {
+const getRecipeById = (id) => {
   return axios.get(API_URL + '/' + id);
+};
+
+export default {
+  CreateRecipe,
+  getAllRecipes,
+  getRecipeById,
 };

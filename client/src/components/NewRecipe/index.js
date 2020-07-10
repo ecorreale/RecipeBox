@@ -6,12 +6,16 @@ import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
-import { Create } from '../../services/RecipeService';
 import { IngredientInputs } from './ingredient';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Styles from './styles.module.css';
 import { Col, Row, ButtonToggle } from 'reactstrap';
+
+import RecipeService from '../../services/RecipeService';
+import AuthService from '../../services/AuthService.js';
+
+const author = AuthService.getCurrentUser().id;
 
 // Field-Validator (Required)
 const Required = (value) => {
@@ -79,6 +83,7 @@ const NewRecipeForm = (props) => {
     setSuccessful(false);
 
     const newRecipe = {
+      author,
       titleState,
       descriptionState,
       ingredientsState,
@@ -93,7 +98,17 @@ const NewRecipeForm = (props) => {
 
     if (checkBtn.current.context._errors.length === 0) {
       console.log('Past if statement');
-      Create(newRecipe).then(
+      RecipeService.CreateRecipe(
+        author,
+        titleState,
+        descriptionState,
+        ingredientsState,
+        prepTimeState,
+        cookTimeState,
+        servingsState,
+        equipmentState,
+        directionsState
+      ).then(
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
@@ -119,7 +134,7 @@ const NewRecipeForm = (props) => {
 
   return (
     <article className={Styles.article}>
-      <div className="container">
+      <div className="container-md">
         <Form className="form-horizontal" onSubmit={handleNewRecipe} ref={form}>
           {!successful && (
             <div>
