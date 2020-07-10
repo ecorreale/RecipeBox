@@ -11,5 +11,6 @@
 }
 
 .NavBarCustom {
-  background-color: rgb(248, 241, 241);
+  background-color: gray;
+  font-weight: 1000;
 }

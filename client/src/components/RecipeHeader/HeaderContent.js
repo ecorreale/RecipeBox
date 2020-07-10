@@ -21,23 +21,11 @@ class HeaderContent extends Component {
         <section className={Styles.effortBox}>
           <FontAwesomeIcon className={Styles.clockIcon} icon={faClock} />
 
-          <div className={Styles.prepTime}>
-            Prep Time:
-            {/* <span className={Styles.hours}>
-              {' '}
-              <this.getTimeFormatted time={this.props.prepTime} />
-            </span> */}
-          </div>
+          <div className={Styles.prepTime}>Prep Time:</div>
 
-          <div className={Styles.cookTime}>
-            Cook Time:
-            {/* <span className={Styles.hours}>
-              {' '}
-              <this.getTimeFormatted time={this.props.cookTime} />
-            </span> */}
-          </div>
+          <div className={Styles.cookTime}>Cook Time:</div>
           <div className={Styles.directions}>
-            > Directions:
+            Directions:
             <div>{this.props.directions}</div>
           </div>
 
@@ -52,21 +40,6 @@ class HeaderContent extends Component {
         </section>
       </article>
     );
-  }
-
-  getTimeFormatted(props) {
-    const hrs = ' HRS';
-    const hr = ' HR';
-
-    var time = props.time;
-    var timeUnits;
-
-    timeUnits = hr;
-    if (time > 1) {
-      timeUnits = hrs;
-    }
-    var displayValue = time + timeUnits;
-    return displayValue;
   }
 }
 

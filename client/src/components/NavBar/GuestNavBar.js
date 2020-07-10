@@ -19,7 +19,7 @@ export default function GuestNavBar() {
 
   return (
     <div className={styles.NavBorder}>
-      <Navbar className={styles.NavBarCustom} light expand="md">
+      <Navbar className={styles.NavBarCustom} dark expand="md">
         <NavbarBrand href="/">My Recipe Box</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

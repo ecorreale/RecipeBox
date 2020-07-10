@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Styles from './styles.module.css';
 
+import AuthService from '../../services/AuthService';
+
 import {
   Collapse,
   Navbar,
@@ -17,9 +19,13 @@ export default function GuestNavBar() {
     setIsOpen(!isOpen);
   };
 
+  const logOut = () => {
+    AuthService.SignOut();
+  };
+
   return (
     <div className={Styles.NavBorder}>
-      <Navbar className={Styles.NavBarCustom} light expand="md">
+      <Navbar className={Styles.NavBarCustom} dark expand="md">
         <NavbarBrand href="/">My Recipe Box</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -37,7 +43,9 @@ export default function GuestNavBar() {
             </NavItem>
 
             <NavItem>
-              <NavLink href="/signOut">Sign Out</NavLink>
+              <NavLink href="/" onClick={logOut}>
+                Sign Out
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>

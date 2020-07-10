@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getAllRecipes } from '../../Services/recipe.service';
+
+import { getAllRecipes } from '../../services/RecipeService';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './recipeList.css';
 

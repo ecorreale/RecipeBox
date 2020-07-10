@@ -3,8 +3,10 @@ import axios from 'axios';
 const API_URL = '/api/recipes';
 
 export const Create = (newRecipe) => {
+  console.log('----Recipe Service Axios Call----');
+  console.log('API_URL: ' + API_URL);
   console.log(newRecipe);
-  return axios.post(API_URL, newRecipe);
+  return axios.post('/api/recipes', newRecipe);
 };
 
 export const getAllRecipes = () => {
