@@ -12,6 +12,4 @@ router
   .put(recipesController.update)
   .delete(recipesController.remove);
 
-router.route('/edamam/search').get(apiController.search);
-
 module.exports = router;

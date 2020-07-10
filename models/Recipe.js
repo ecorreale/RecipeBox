@@ -13,14 +13,12 @@ const recipeSchema = new Schema({
     required: true,
   },
 
-  // description: {
-  //   type: String,
-  //   required: true,
-  // },
-
-  ingredients: {
+  description: {
     type: String,
+    required: true,
   },
+
+  ingredients: [Ingredient],
 
   prepTime: {
     type: String,
@@ -30,15 +28,15 @@ const recipeSchema = new Schema({
     type: String,
   },
 
+  servings: {
+    type: String,
+  },
+
   equipment: {
     type: String,
   },
 
   directions: {
-    type: String,
-  },
-
-  servings: {
     type: String,
   },
 });

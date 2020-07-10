@@ -3,32 +3,26 @@ import Input from 'react-validation/build/input';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.module.css';
 
-export function Textbox(props) {
-  const labelClass = props.Inline ? 'col-sm-2 col-form-label' : 'form-label';
-  const inputClass =
-    'form-control, form-control-sm' + (props.Inline ? 'col-sm-10' : '');
-  const groupClass = 'form-group' + (props.Inline ? +'row' : '');
+// export function Textbox(props) {
 
-  return (
-    <div className={groupClass}>
-      <label
-        htmlFor={props.name}
-        className={labelClass}
-        style={{ whiteSpace: 'nowrap', textAlign: 'left' }}
-      >
-        {props.label}
-      </label>
+//   return (
 
-      <Input
-        className="form-control"
-        name={props.name}
-        type="text"
-        value={props.value}
-        placeholder={props.placeholder}
-      />
-    </div>
-  );
-}
+//     <div class="form-group">
+//       <div className={`control-label col-sm-3`} htmlFor={props.name} >
+//         {props.label}
+//       </div>
+//       <div class="col-sm-7">
+//         <input
+//           className="form-control form-control-sm"
+//           name={props.name}
+//           type="text"
+//           value={props.value}
+//           placeholder={props.placeholder}
+//         />
+//       </div>
+//     </div>
+//   );
+// }
 
 export function Textarea(props) {
   const labelClass = props.Inline ? 'col-sm-2 col-form-label' : 'form-label';
@@ -40,7 +34,6 @@ export function Textarea(props) {
     <div className={groupClass}>
       <label
         htmlFor={props.name}
-        className={labelClass}
         style={{ whiteSpace: 'nowrap', textAlign: 'left' }}
       >
         {props.label}

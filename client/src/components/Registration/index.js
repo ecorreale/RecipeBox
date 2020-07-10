@@ -114,6 +114,7 @@ const RegistrationForm = (props) => {
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
+          window.location.href = '/SignIn';
         },
 
         (error) => {

@@ -1,7 +1,36 @@
-.regForm {
-  background-color: white;
-  padding: 25px;
-  margin: 50px;
-  margin-top: 20px;
-  position: relative;
+.article {
+  margin: 20px;
+}
+
+.validatorText {
+  font-size: 10px;
+  font-size-adjust: initial;
+}
+
+.noPadding {
+  padding: 0px;
+}
+
+.ingredientRow {
+  height: 35px;
+}
+
+.ingredientHeader {
+  height: 25px;
+  text-align: left;
+}
+
+.ingredientLink {
+  font-size: x-small;
+}
+
+button {
+  margin: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+label {
+  font-size: 13px;
+  margin-bottom: 1px;
 }

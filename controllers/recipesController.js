@@ -18,14 +18,14 @@ module.exports = {
   },
 
   create: function (req, res) {
-    console.log('Recipe Controller: Create()');
+    console.log('============Recipe Controller: Create()=================');
     console.log(req.body);
     // res.json(req.body);
-    db.Recipe.create(req.body)
-      .then(function (dbModel) {
-        res.json(dbModel);
-      })
-      .catch((err) => res.status(422).json(err));
+    // db.Recipe.create(req.body)
+    //   .then(function (dbModel) {
+    //     res.json(dbModel);
+    //   })
+    //   .catch((err) => res.status(422).json(err));
     // .catch(function(err) {res.status(422)});
   },
 
