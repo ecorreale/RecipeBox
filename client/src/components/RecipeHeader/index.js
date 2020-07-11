@@ -5,6 +5,8 @@ import Styles from './RecipeHeader.module.css';
 import HeaderContent from './HeaderContent';
 
 function RecipeHeader(props) {
+  console.log('=============== Recipe Header=======================');
+  console.log(props);
   return (
     <article id="header">
       <div className={Styles.headerWrapper}>

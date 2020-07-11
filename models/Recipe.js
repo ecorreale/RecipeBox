@@ -19,10 +19,6 @@ const recipeSchema = new Schema({
   },
 
   ingredients: [Ingredient],
-  // ingredients: {
-  //   type:String,
-  //   required:true,
-  // },
 
   prepTime: {
     type: String,

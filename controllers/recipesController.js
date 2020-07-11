@@ -14,6 +14,7 @@ module.exports = {
   findById: function (req, res) {
     console.log('Recipe Controller: findById()');
     db.Recipe.findById(req.params.id)
+      .lean()
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },

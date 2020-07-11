@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 
 import Styles from './RecipeHeader.module.css';
+import IngredientList from './IngredientList';
+import RecipeService from '../../services/RecipeService';
 
-// class HeaderContent extends Component {
-//   constructor(props) {
-//     super(props);
-//     console.log(props);
-//   }
+function Result(props) {
+  console.log(props);
+}
+
 function HeaderContent(props) {
   return (
     <article className={Styles.headerDetail_Wrapper}>
@@ -17,25 +18,34 @@ function HeaderContent(props) {
         {props.RecipeTitle}
       </section>
 
-      <section className={Styles.effortBox}>
+      <div className={Styles.effortBox}>
         <FontAwesomeIcon className={Styles.clockIcon} icon={faClock} />
+      </div>
 
-        <div className={Styles.prepTime}>Prep Time:</div>
-        <div>{props.RecipePrepTime}</div>
+      <section className={Styles.propsSection}>
+        <div className={Styles.label}>
+          Prep Time:
+          <span className={Styles.prepTime}>{props.RecipePrepTime}</span>
+        </div>
 
-        <div className={Styles.cookTime}>Cook Time:</div>
-        <div>{props.RecipeCookTime}</div>
+        <div className={Styles.label}>
+          Cook Time:
+          <span className={Styles.cookTime}>{props.RecipeCookTime}</span>
+        </div>
 
-        <div className={Styles.directions}>Directions:</div>
-        <div>{props.RecipeDirections}</div>
+        <div className={Styles.label}>
+          Directions:
+          <span className={Styles.directions}>{props.RecipeDirections}</span>
+        </div>
 
-        <div className={Styles.ingredients}>Ingredients:</div>
-        {/* <div>{props.RecipeIngredients.map(RecipeIngredients => {
-          <p>{RecipeIngredients.qty}{RecipeIngredients.unit}  {RecipeIngredients.ingredient}</p>
-        })}</div> */}
+        {/* <div className={Styles.ingredients}>Ingredients:
+        <IngredientList ingredients = {props.RecipeIngredients}/>
+        </div> */}
 
-        <div className={Styles.equipment}>Equipments:</div>
-        <div>{props.RecipeEquipment}</div>
+        <div className={Styles.label}>
+          Equipment:
+          <span className={Styles.equipment}>{props.RecipeEquipment}</span>
+        </div>
       </section>
     </article>
   );

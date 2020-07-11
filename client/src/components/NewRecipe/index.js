@@ -60,7 +60,7 @@ const NewRecipeForm = (props) => {
   const [equipmentState, setEquipmentState] = useState('');
   const [servingsState, setServingsState] = useState('');
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [successful, setSuccessful] = useState(false);
 
@@ -85,17 +85,17 @@ const NewRecipeForm = (props) => {
     setMessage('');
     setSuccessful(false);
 
-    const newRecipe = {
-      author,
-      titleState,
-      descriptionState,
-      ingredientsState,
-      prepTimeState,
-      cookTimeState,
-      servingsState,
-      equipmentState,
-      directionsState,
-    };
+    // const newRecipe = {
+    //   author,
+    //   titleState,
+    //   descriptionState,
+    //   ingredientsState,
+    //   prepTimeState,
+    //   cookTimeState,
+    //   servingsState,
+    //   equipmentState,
+    //   directionsState,
+    // };
 
     form.current.validateAll();
 
