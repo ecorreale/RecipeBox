@@ -15,7 +15,10 @@ import { Col, Row, ButtonToggle } from 'reactstrap';
 import RecipeService from '../../services/RecipeService';
 import AuthService from '../../services/AuthService.js';
 
-const author = AuthService.getCurrentUser().id;
+const user = AuthService.getCurrentUser();
+
+var author;
+user === null ? (author = '') : (author = user.id);
 
 // Field-Validator (Required)
 const Required = (value) => {

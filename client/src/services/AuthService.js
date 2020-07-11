@@ -39,6 +39,13 @@ function getCurrentUser() {
   return token;
 }
 
+function IsLoggedIn() {
+  if (localStorage.getItem('user') === null) {
+    return false;
+  }
+  return true;
+}
+
 function GetAuthStatus() {
   const AuthStatus = JSON.parse(localStorage.getItem('user'));
 
