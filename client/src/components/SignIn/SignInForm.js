@@ -57,7 +57,12 @@ const SignInForm = (props) => {
   function AuthenticateUser() {
     AuthService.SignIn(username, password).then(
       (response) => {
-        if (response.data.id) {
+        console.log('Response: ' + response);
+        if (response == false) {
+          const resMessage = 'Sign In Failed.';
+          setLoading(false);
+          setMessage(resMessage);
+        } else if (response.data.id) {
           window.location.href = '/SignIn';
         }
       },
@@ -133,77 +138,3 @@ const SignInForm = (props) => {
   );
 };
 export default SignInForm;
-//ToDo:-------------------------------
-// function InlineLogin() {
-
-//   if (this.props.IsAuthenticated) {
-//     return (
-//       <div style={{ fontSize: '11px' }}> Welcome {this.props.UserName} </div>
-//     );
-//   } else {
-//     return (
-//       <Form inline>
-//         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-//           <Label for="oUsername" className="mr-sm-2">
-//             Email
-//           </Label>
-//           <Input
-//             bsSize="sm"
-//             type="email"
-//             name="email"
-//             id="oUsername"
-//             placeholder="eMail Address"
-//           />
-//         </FormGroup>
-//         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-//           <Label for="oPassword" className="mr-sm-2">
-//             Password
-//           </Label>
-//           <Input bsSize="sm" type="password" name="password" id="oPassword" />
-//         </FormGroup>
-//         <Button>Submit</Button>
-//       </Form>
-//     );
-//   }
-// }
-
-// export default LoginForm;
-
-// import React, { Component } from 'react';
-
-// const fakeAuth = {
-//   isAuthenticated: false,
-//   authenticate(cb) {
-//     this.isAuthenticated = true;
-//     setTimeout(cb, 100); // fake async
-//   },
-//   signout(cb) {
-//     this.isAuthenticated = false;
-//     setTimeout(cb, 100); // fake async
-//   },
-// };
-
-// class Login extends React.Component {
-//   state = {
-//     redirectToReferrer: false,
-//   };
-
-//   login = () => {
-//     fakeAuth.authenticate(() => {
-//       this.setState(() => ({
-//         redirectToReferrer: true,
-//       }));
-//     });
-//   };
-//   render() {
-//     const { redirectToReferrer } = this.state;
-
-//     if (redirectToReferrer === true) {
-//       // return <Redirect to='/' />
-//     }
-
-//     return <div>Login</div>;
-//   }
-// }
-
-// export default Login;

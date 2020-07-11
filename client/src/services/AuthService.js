@@ -21,13 +21,19 @@ const SignIn = (username, password) => {
       username,
       password,
     })
-    .then((response) => {
-      if (response.data.accessToken) {
-        localStorage.setItem('user', JSON.stringify(response.data));
-      }
+    .then(
+      (response) => {
+        if (response.data.accessToken) {
+          localStorage.setItem('user', JSON.stringify(response.data));
+        }
 
-      return response;
-    });
+        return response;
+      },
+      (error) => {
+        // console.log(error)
+        return false;
+      }
+    );
 };
 
 function SignOut() {
