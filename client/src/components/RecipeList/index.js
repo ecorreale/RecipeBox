@@ -19,7 +19,7 @@ function RecipeList() {
     <section>
       <br />
       <h6>Recipes you have saved to your RecipeBox</h6>
-      <table classclass="table table-hover table-sm">
+      <table className="table table-hover table-sm">
         <thead className="thead-light">
           <tr>
             <th scope="col">Title</th>

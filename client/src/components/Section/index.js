@@ -9,6 +9,7 @@ function Section() {
         width="100%"
         alignSelf="center"
         resizeMode="contain"
+        alt="Image of tomatoes"
       />
     </section>
   );
