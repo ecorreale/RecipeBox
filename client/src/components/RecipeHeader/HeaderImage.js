@@ -11,8 +11,8 @@ function HeaderImage(props) {
           <CardImg
             top
             width="100%"
-            src={props.ImageSrc}
-            alt={props.RecipeTitle}
+            src="{props.ImageSrc}"
+            // alt={props.RecipeTitle}
           />
         </CardBody>
         {/* <CardFooter className={Styles.cardFooter}>

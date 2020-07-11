@@ -10,7 +10,8 @@ import RecipeService from '../../services/RecipeService';
 function Result(props) {
   console.log(props);
 }
-
+// var text = props.RecipeDirections
+// const RecipeDirections = (text).replace("Step","<br/>Step")
 function HeaderContent(props) {
   return (
     <article className={Styles.headerDetail_Wrapper}>

@@ -12,11 +12,12 @@ function RecipeHeader(props) {
       <div className={Styles.headerWrapper}>
         <div className={Styles.header}>
           <section className={Styles.imageComponentWrapper}>
-            <HeaderImage
+            {/* <HeaderImage
               ImageSrc={props.ImageSrc}
-              RecipeSrc={props.RecipeSrc}
-              RecipeTitle={props.RecipeTitle}
-            />
+
+              // RecipeSrc={props.RecipeSrc}
+              // RecipeTitle={props.RecipeTitle}
+            /> */}
           </section>
 
           <section className={Styles.contentWrapper}>

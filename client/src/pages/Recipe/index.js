@@ -24,7 +24,7 @@ function RecipePage(props) {
       <Navigation />
       <Wrapper>
         <RecipeHeader
-          ImageSrc="/img/recipeBox.png"
+          ImageSrc="/img/recipeImages/MushroomSoup.webp"
           RecipeSrc={recipe.servings}
           RecipeTitle={recipe.title}
           RecipeCookTime={recipe.cookTime}
