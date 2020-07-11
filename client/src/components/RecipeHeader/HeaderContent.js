@@ -30,7 +30,9 @@ function HeaderContent(props) {
         <div>{props.RecipeDirections}</div>
 
         <div className={Styles.ingredients}>Ingredients:</div>
-        <div>{props.map(RecipeIngredients)}</div>
+        {/* <div>{props.RecipeIngredients.map(RecipeIngredients => {
+          <p>{RecipeIngredients.qty}{RecipeIngredients.unit}  {RecipeIngredients.ingredient}</p>
+        })}</div> */}
 
         <div className={Styles.equipment}>Equipments:</div>
         <div>{props.RecipeEquipment}</div>
