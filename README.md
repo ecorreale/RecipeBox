@@ -40,6 +40,8 @@ You have to sign up or log in , once you are in you can just search for a recipe
 
 ## Demo
 
+![demo](https://user-images.githubusercontent.com/59664686/87572307-56655980-c699-11ea-855b-67513dae0542.gif)
+
 ## Contribution
 
 Vannak Suos, Arthur Freeman, Ernie Correale
